@@ -128,35 +128,35 @@ class TranscriptsProcessor:
         return result
     
     def extractCUWebVTT(self, transcripts):
-        cuWebVTTProcessor = self.get_transcriptionProcessor("fast_transcription")
+        cuWebVTTProcessor = self.get_transcriptionProcessor("cu_markdown")
         result = cuWebVTTProcessor.process_transcript(transcripts)
-        print("Fast to WebVTT Conversion completed.")
+        print("CU to WebVTT Conversion completed.")
         return result
 
     def convert_file(self, file_path):
+        converted_text = ''
+        converted_text_filepath = ''
         transcripts = self.load_transcription_fromLocal(file_path)
         if "combinedRecognizedPhrases" in transcripts:
             print("Processing a batch transcription file.")
             converted_text = self.convertBTtoWebVTT(transcripts)
-            converted_text_filepath = self.save_converted_file(converted_text)
-            
-
+            converted_text_filepath = self.save_converted_file(converted_text, file_path)
         elif "combinedPhrases" in transcripts:
             print("processing a fast transcription file.")
             converted_text = self.convertFTtoWebVTT(transcripts)
-            converted_text_filepath = self.save_converted_file(converted_text)
-            
-        elif "WEBVTT" in transcripts:
+            converted_text_filepath = self.save_converted_file(converted_text, file_path)
+        elif "WEBVTT" in str(transcripts):
             print("processing a CU transcription file.")
             converted_text = self.extractCUWebVTT(transcripts)
-            converted_text_filepath = self.save_converted_file(converted_text)       
-        else:    
-            raise ValueError("An error occurred during the conversion process")
+            converted_text_filepath = self.save_converted_file(converted_text, file_path)
+        else:
+            print("No supported conversation transcription found. Skipping conversion.")
+            # raise ValueError("An error occurred during the conversion process")
         
         return converted_text, converted_text_filepath
     
-    def save_converted_file(self, converted_text):
-        temp_file = os.path.join("..", "data", "output", "convertedTowebVTT.txt")
+    def save_converted_file(self, converted_text, file_path):
+        temp_file = os.path.join("..", "data", "transcripts_processor_output", f"{os.path.basename(file_path)}.convertedTowebVTT.txt")
         output_dir = os.path.dirname(temp_file)
         if not os.path.exists(output_dir):
             os.makedirs(output_dir, exist_ok=True)
