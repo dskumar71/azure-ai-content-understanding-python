@@ -1,0 +1,25 @@
+{
+    "description": "Example to extract text from images and summarizes it.",
+    "config": {
+        "returnDetails": true
+    },
+    "tags": {
+        "projectId": "",
+        "templateId": "image-2024-12-01"
+      },
+    "scenario": "image",
+    "fieldSchema": {
+        "fields": {
+            "TextInImage": {
+                "type": "string",
+                "method": "generate",
+                "description": "All text from the image"
+            },
+            "Summary": {
+                "type": "string",
+                "method": "generate",
+                "description": "Summay of the text in the image"
+            }
+        }
+    }
+}
