@@ -5,10 +5,11 @@
     "projectId": "16f1d030-0fac-4ce0-a92c-88bcd6eee3d8",
     "templateId": "postCallAnalytics-2024-12-01"
   },
-  "createdAt": "2025-02-06T19:31:09Z",
-  "lastModifiedAt": "2025-02-06T19:31:11Z",
+  "createdAt": "2025-02-12T23:08:57Z",
+  "lastModifiedAt": "2025-02-12T23:08:59Z",
   "config": {
-    "returnDetails": false
+    "returnDetails": false,
+    "disableContentFiltering": false
   },
   "fieldSchema": {
     "fields": {
