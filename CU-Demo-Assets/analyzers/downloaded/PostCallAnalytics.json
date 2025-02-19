@@ -1,0 +1,95 @@
+{
+  "analyzerId": "PostCallAnalytics",
+  "description": "Post Call Analytics Analyzer based on the default template",
+  "tags": {
+    "projectId": "16f1d030-0fac-4ce0-a92c-88bcd6eee3d8",
+    "templateId": "postCallAnalytics-2024-12-01"
+  },
+  "createdAt": "2025-02-06T19:31:09Z",
+  "lastModifiedAt": "2025-02-06T19:31:11Z",
+  "config": {
+    "returnDetails": false
+  },
+  "fieldSchema": {
+    "fields": {
+      "Summary": {
+        "type": "string",
+        "method": "generate",
+        "description": "A one-paragraph summary"
+      },
+      "Topics": {
+        "type": "array",
+        "method": "generate",
+        "description": "Top 5 topics mentioned",
+        "items": {
+          "type": "string",
+          "method": "generate"
+        }
+      },
+      "Companies": {
+        "type": "array",
+        "method": "generate",
+        "description": "List of companies mentioned",
+        "items": {
+          "type": "string",
+          "method": "generate"
+        }
+      },
+      "People": {
+        "type": "array",
+        "method": "generate",
+        "description": "List of people mentioned",
+        "items": {
+          "type": "object",
+          "method": "generate",
+          "properties": {
+            "Name": {
+              "type": "string",
+              "method": "generate",
+              "description": "Person's name"
+            },
+            "Role": {
+              "type": "string",
+              "method": "generate",
+              "description": "Person's title/role"
+            }
+          }
+        }
+      },
+      "Sentiment": {
+        "type": "string",
+        "method": "classify",
+        "description": "Overall sentiment",
+        "enum": [
+          "Positive",
+          "Neutral",
+          "Negative"
+        ]
+      },
+      "Categories": {
+        "type": "array",
+        "method": "generate",
+        "description": "List of relevant categories",
+        "items": {
+          "type": "string",
+          "method": "classify",
+          "enum": [
+            "Agriculture",
+            "Business",
+            "Finance",
+            "Health",
+            "Insurance",
+            "Mining",
+            "Pharmaceutical",
+            "Retail",
+            "Technology",
+            "Transportation"
+          ]
+        }
+      }
+    }
+  },
+  "warnings": [],
+  "status": "ready",
+  "scenario": "callCenter"
+}
