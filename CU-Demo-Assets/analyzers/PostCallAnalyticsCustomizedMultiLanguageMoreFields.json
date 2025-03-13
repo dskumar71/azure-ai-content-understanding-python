@@ -1,0 +1,132 @@
+{
+    "description": "Multilanguage Post Call Analytics Analyzer with increased field limit.",
+    "scenario": "callCenter",
+    "config": {
+        "locales": ["en-US", "de-DE", "pt-BR"],
+        "returnDetails": true,
+        "_experimental": {
+            "_enableExtraFields": "true"
+        }
+    },
+    "tags": {
+        "projectId": "",
+        "templateId": "postCallAnalytics-2024-12-01"
+    },
+    "fieldSchema": {
+        "fields": {
+            "Summary": {
+                "type": "string",
+                "method": "generate",
+                "description": "A one-paragraph summary"
+            },
+            "IssueSummary": {
+                "type": "string",
+                "method": "generate",
+                "description": "A short list of the caller\"s issue(s)"
+            },
+            "ResolutionSummary": {
+                "type": "string",
+                "method": "generate",
+                "description": "A short list of actions how the issue was resolved"
+            },
+            "Topics": {
+                "type": "array",
+                "method": "generate",
+                "description": "Top 5 topics mentioned",
+                "items": {
+                    "type": "string",
+                    "method": "generate"
+                }
+            },
+            "Companies": {
+                "type": "array",
+                "method": "generate",
+                "description": "List of companies mentioned",
+                "items": {
+                    "type": "string",
+                    "method": "generate"
+                }
+            },
+            "People": {
+                "type": "array",
+                "method": "generate",
+                "description": "List of people mentioned",
+                "items": {
+                    "type": "object",
+                    "method": "generate",
+                    "properties": {
+                        "Name": {
+                            "type": "string",
+                            "method": "generate",
+                            "description": "Person's name"
+                        },
+                        "Role": {
+                            "type": "string",
+                            "method": "generate",
+                            "description": "Person's title/role"
+                        }
+                    }
+                }
+            },
+            "Sentiment": {
+                "type": "string",
+                "method": "classify",
+                "description": "Overall sentiment",
+                "enum": ["Positive", "Neutral", "Negative"],
+                "enumDescriptions": {
+                    "Positive": "The customer expresses satisfaction and a positive experience.",
+                    "Neutral": "The customer shows neither strong positive nor negative feelings; their experience is mixed.",
+                    "Negative": "The customer expresses dissatisfaction, frustration, or other negative emotions."
+                }
+            },
+            "Categories": {
+                "type": "array",
+                "method": "generate",
+                "description": "List of relevant categories",
+                "items": {
+                    "type": "string",
+                    "method": "classify",
+                    "enum": ["Agriculture", "Business", "Finance", "Health", "Insurance", "Mining", "Pharmaceutical", "Retail", "Technology", "Transportation"]
+                }
+            },
+            "SummaryInputLanguage": {
+                "type": "string",
+                "method": "generate",
+                "description": "A one-paragraph summary. Create in the language of the conversation."
+            },
+            "TopicsInputLanguage": {
+                "type": "array",
+                "method": "generate",
+                "description": "Top 5 topics mentioned. Create in the language of the conversation.",
+                "items": {
+                    "type": "string",
+                    "method": "generate"
+                }
+            },
+            "Zusammenfassung": {
+                "type": "string",
+                "method": "generate",
+                "description": "Eine Zusammenfassung des Gespr\u00e4chs"
+            },
+            "Themen": {
+                "type": "array",
+                "method": "generate",
+                "description": "Top 5 erw\u00e4hnte Gespr\u00e4chsthemen",
+                "items": {
+                    "type": "string",
+                    "method": "generate"
+                }
+            },
+			"Kategorien": {
+                "type": "array",
+                "method": "generate",
+                "description": "Liste der relevanten Kategorien",
+                "items": {
+                    "type": "string",
+                    "method": "classify",
+                    "enum": ["Agrar", "Gesch\u00e4ftlich", "Finanzen", "Gesundheit", "Versicherung", "Mienen", "Pharmacie", "Handel", "Technologie", "Transportwesen"]
+                }
+            }
+        }
+    }
+}
