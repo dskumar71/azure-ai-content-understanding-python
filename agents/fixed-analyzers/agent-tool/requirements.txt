@@ -1,0 +1,11 @@
+# DO NOT include azure-functions-worker in this file
+# The Python Worker is managed by Azure Functions platform
+# Manually managing azure-functions-worker may cause unexpected issues
+
+azure-functions
+autogen-core<0.4.9.2     
+autogen-agentchat<0.4.9.2
+# autogen-agentchat~=0.2
+requests
+# pillow<11.0.0
+# protobuf<5

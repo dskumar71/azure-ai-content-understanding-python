@@ -164,3 +164,8 @@ cython_debug/
 # VSCode
 .vscode
 .azure
+
+# gitgnore files in upload folders but not the folders themselves
+uploads/*
+!uploads/
+!uploads/**/*
