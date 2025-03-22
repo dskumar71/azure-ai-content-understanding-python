@@ -166,6 +166,4 @@ cython_debug/
 .azure
 
 # gitgnore files in upload folders but not the folders themselves
-uploads/*
-!uploads/
-!uploads/**/*
+uploads/

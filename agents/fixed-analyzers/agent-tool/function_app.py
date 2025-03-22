@@ -54,7 +54,9 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
         token_provider=lambda: "your_token_here"
     )
     
+    analyzer_cleanup = False
     if not client.check_if_analyzer_exists(analyzer_id=analyzer_id):
+        analyzer_cleanup = True
         analyzer = client.begin_create_analyzer(
             analyzer_id=analyzer_id,
             analyzer_template=schema
@@ -69,9 +71,16 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
         
     resp = client.begin_analyze(analyzer_id=analyzer_id, file_location=file_url)
     output = client.poll_result(resp)
-    
-    markdown =output["result"]["contents"][0]["markdown"]
-    fields =output["result"]["contents"][0]["fields"]
+    if analyzer_cleanup == True:
+        cleanup = client.delete_analyzer(analyzer_id)
+        if cleanup.status_code != 204:
+            return func.HttpResponse(
+                "Analyzer deletion failed.",
+                status_code=500
+            )
+
+    markdown = output["result"]["contents"][0]["markdown"]
+    fields = output["result"]["contents"][0]["fields"]
     result = {
         "markdown": markdown,
         "fields": fields

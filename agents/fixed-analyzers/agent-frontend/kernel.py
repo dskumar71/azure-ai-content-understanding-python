@@ -20,234 +20,32 @@ class TenKParserPlugin:
     async def extract_fields(self, file_url) -> dict:
         """Parses the 10K PDF and extract the relevant fields from the document. Also produces a markdown representation of the document for adding to a vector store for RAG"""
         async with aiohttp.ClientSession() as session:
+            analyzer_schema_file='../../../analyzer_templates/financial_report.json'
+            with open(analyzer_schema_file, "r") as f:
+                actual_analyzer_schema = json.loads(f.read())
+            # actual_analyzer_schema = json.loads(actual_analyzer_schema)
+
             template = """
             {
-              "analyzer_id":"financial-analyzer10",
+              "analyzer_id":"${analyzer_id}",
               "file_url": "${file_url}",
-              "schema": {
-              "description": "My custom 10K analyzer",  
-              "tags": {
-                "createdBy": "jagoerge with agent-demo",
-                "projectId": "16f1d030-0fac-4ce0-a92c-88bcd6eee3d8"
-              },
-              "config": {
-                "enableFace": false,
-                "enableOcr": true,
-                "enableLayout": true,
-                "enableBarcode": true,
-                "enableFormula": false,
-                "returnDetails": true
-              },
-              "fieldSchema": {
-                "fields": {
-                  "CompanyName": {
-                    "type": "string",
-                    "method": "extract",
-                    "description": "Name of the company"
-                  },
-                  "TickerSymbol": {
-                    "type": "string",
-                    "method": "extract",
-                    "description": "The symbol the company trades under"
-                  },
-                  "YearEnding": {
-                    "type": "date",
-                    "method": "extract",
-                    "description": "The financial year ending date for this 10K filing" 
-                  },
-                  "CompanyAddress": {
-                    "type": "string",
-                    "method": "extract",
-                    "description": ""
-                  },
-                  "TotalCurrentAssets": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The total current assets for the company for the current year from the balance sheet"
-                  },
-                  "TotalAssets": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The total  assets for the company for the current year from the balance sheet"
-                  },
-                  "TotalCurrentLiabilities": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The total current liabilities for the company for the current year from the balance sheet"
-                  },
-                  "TotalLiabilities": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The total liabilities for the company for the current year from the balance sheet"
-                  },
-                  "TotalStockholderEquity": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The total stockholder equity for the company for the current year from the balance sheet"
-                  },
-                  "NetEarnings": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The net earnings for the company for the current year from the income statement"
-                  },
-                  "NetEarningsPerShareDiluted": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The net earnings per share for the company for the current year from the income statement"
-                  },
-                  "NetEarningsPerShareBasic": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The net earnings per share for the company for the current year from the income statement"
-                  },
-                  "ComprehensiveIncome": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The comprehensive income for the company for the current year from the income statement"
-                  },
-                  "NetCashFlowFromOperatingActivities": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The net cash flow from operating activities for the company for the current year from the cash flow statement"
-                  },
-                  "NetCashFlowFromInvestingActivities": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The net cash flow from investing activities for the company for the current year from the cash flow statement"
-                  },
-                  "NetCashFlowFromFinancingActivities": {
-                    "type": "number",
-                    "method": "extract",
-                    "description": "The net cash flow from financing activities for the company for the current year from the cash flow statement"
-                  }, 
-                  "IncomeStatement": {
-                    "type": "array",
-                    "method": "extract",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "CashAndCashEquivalents": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "cash and cash equivalents for the current year from the income statement"
-                        },
-                        "ShortTermInvestments": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Short term investments for the current year from the income statement"
-                        }, 
-                        "AccountsReceivable": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Accounts receivable for the current year from the income statement"
-                        }, 
-                        "Inventory": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Inventory for the current year from the income statement"
-                        },
-                        "PrepaidExpenses": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Prepaid expenses for the current year from the income statement"
-                        },
-                        "OtherCurrentAssets": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Other current assets for the current year from the income statement"
-                        },
-                        "PropertyPlantAndEquipment": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Property plant and equipment for the current year from the income statement"
-                        },
-                        "Goodwill": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Goodwill for the current year from the income statement"
-                        },
-                        "IntangibleAssets": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Intangible assets for the current year from the income statement"
-                        },
-                        "LongTermInvestments": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Long term investments for the current year from the income statement"
-                        },
-                        "OtherAssets": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Other assets for the current year from the income statement"
-                        },
-                        "TotalAssets": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Total assets for the current year from the income statement"
-                        },
-                        "AccountsPayable": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Accounts payable for the current year from the income statement"
-                        },
-                        "AccruedLiabilities": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Accrued liabilities for the current year from the income statement"
-                        },
-                        "ShortTermDebt": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Short term debt for the current year from the income statement"
-                        },
-                        "LongTermDebt": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Long term debt for the current year from the income statement"
-                        },
-                        "DeferredRevenue": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Deferred revenue for the current year from the income statement"
-                        },
-                        "OtherLiabilities": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Other liabilities for the current year from the income statement"
-                        },
-                        "TotalLiabilities": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Total liabilities for the current year from the income statement"
-                        },
-                        "TotalStockholderEquity": {
-                          "type": "number",
-                          "method": "extract",
-                          "description": "Total stockholder equity for the current year from the income statement"
-                        }
-
-                      }
-                    }
-                  }
-
-                },
-                "definitions": {}
-              },
-              "scenario": "document"
+              "schema": ${analyzer_schema}
             }
-            }
+            """
 
-          """
-            
             # Handle file_url being passed as a dictionary with a url property
+            actual_analyzer_id = "financial-analyzer11"
             actual_url = file_url
             if isinstance(file_url, dict) and 'url' in file_url:
                 actual_url = file_url['url']
             
+            # Replace the analyzer_id placeholder with the actual analyzer ID
+            template = template.replace("${analyzer_id}", actual_analyzer_id)
             # Replace the file_url placeholder with the actual file_url
             template = template.replace("${file_url}", actual_url)
-            
+            # Replace the analyzer_schema placeholder with the actual schema
+            template = template.replace("${analyzer_schema}", json.dumps(actual_analyzer_schema))
+
             # Convert the template string to a JSON object
             payload = json.loads(template)
             
