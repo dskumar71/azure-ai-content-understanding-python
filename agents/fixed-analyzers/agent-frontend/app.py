@@ -19,8 +19,8 @@ app.secret_key = os.environ.get("SECRET_KEY", "default-dev-key")
 
 # Configuration
 UPLOAD_FOLDER = './uploads'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'docx', 'xlsx', 'csv'}
-MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB max file size
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'docx', 'xlsx', 'csv', 'wav'}
+MAX_CONTENT_LENGTH = 20 * 1024 * 1024  # 20MB max file size
 
 # Azure Storage configuration
 CONNECTION_STRING = os.environ.get("AZURE_STORAGE_CONNECTION_STRING")

@@ -2,12 +2,12 @@ import json, os
 import aiohttp
 from semantic_kernel.functions import kernel_function
 
-class TenKParserPlugin:
+class CallCenterRecordinParserPlugin:
     @kernel_function
     async def extract_fields(self, file_url) -> dict:
-        """Parses the 10K PDF and extracts the relevant fields from the document. Also produces a markdown representation of the document for adding to a vector store for RAG"""
+        """Parses the call recording audio files and extracts the relevant fields from it. Also produces a markdown representation of the audio transcript as WEBVTT for adding to a vector store for RAG."""
         async with aiohttp.ClientSession() as session:
-            analyzer_schema_file='../../../analyzer_templates/financial_report.json'
+            analyzer_schema_file='../../../analyzer_templates/call_recording_analytics.json'
             with open(analyzer_schema_file, "r") as f:
                 actual_analyzer_schema = json.loads(f.read())
 
@@ -20,7 +20,7 @@ class TenKParserPlugin:
             """
 
             # Handle file_url being passed as a dictionary with a url property
-            actual_analyzer_id = "financial-analyzer11"
+            actual_analyzer_id = "callcenter-analyzer11"
             actual_url = file_url
             if isinstance(file_url, dict) and 'url' in file_url:
                 actual_url = file_url['url']

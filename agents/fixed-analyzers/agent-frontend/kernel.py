@@ -12,6 +12,7 @@ from semantic_kernel.connectors.ai.open_ai.prompt_execution_settings.azure_chat_
     AzureChatPromptExecutionSettings,
 )
 from plugins.TenKParser import TenKParserPlugin
+from plugins.CallCenterRecordinParser import CallCenterRecordinParserPlugin
 
 # Singleton class to manage Semantic Kernel and chat session
 class ChatSingleton:
@@ -39,8 +40,8 @@ class ChatSingleton:
         service_id = "agent"
         kernel = Kernel()
         kernel.add_plugin(TenKParserPlugin(), plugin_name="TenKParser")
+        kernel.add_plugin(CallCenterRecordinParserPlugin(), plugin_name="CallCenterRecordinParser")
         kernel.add_service(AzureChatCompletion(service_id=service_id, deployment_name=os.getenv("AOAI_DEPLOYMENT_NAME"), base_url=os.getenv("AOAI_BASE_URL"), api_key=os.getenv("AOAI_KEY")))
-
 
         # 2. Configure the function choice behavior to auto invoke kernel functions
         # so that the agent can automatically execute the menu plugin functions when needed
