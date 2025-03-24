@@ -12,7 +12,7 @@ from semantic_kernel.connectors.ai.open_ai.prompt_execution_settings.azure_chat_
     AzureChatPromptExecutionSettings,
 )
 from plugins.TenKParser import TenKParserPlugin
-from plugins.CallCenterRecordinParser import CallCenterRecordinParserPlugin
+from plugins.CallCenterRecordingParser import CallCenterRecordingParserPlugin
 
 # Singleton class to manage Semantic Kernel and chat session
 class ChatSingleton:
@@ -40,7 +40,7 @@ class ChatSingleton:
         service_id = "agent"
         kernel = Kernel()
         kernel.add_plugin(TenKParserPlugin(), plugin_name="TenKParser")
-        kernel.add_plugin(CallCenterRecordinParserPlugin(), plugin_name="CallCenterRecordinParser")
+        kernel.add_plugin(CallCenterRecordingParserPlugin(), plugin_name="CallCenterRecordingParser")
         kernel.add_service(AzureChatCompletion(service_id=service_id, deployment_name=os.getenv("AOAI_DEPLOYMENT_NAME"), base_url=os.getenv("AOAI_BASE_URL"), api_key=os.getenv("AOAI_KEY")))
 
         # 2. Configure the function choice behavior to auto invoke kernel functions
@@ -51,7 +51,7 @@ class ChatSingleton:
         # 3. Create the agent
         self._agent = ChatCompletionAgent(
             kernel=kernel,
-            name="Host",
+            name="DataAnalyticsAgent",
             instructions=os.getenv("AGENT_PROMPT"),
             arguments=KernelArguments(settings=settings),
         )
@@ -61,8 +61,7 @@ class ChatSingleton:
         
         # Enable planning
         self._execution_settings = AzureChatPromptExecutionSettings()
-        self._execution_settings.function_choice_behavior = FunctionChoiceBehavior.Auto()
-        
+        self._execution_settings.function_choice_behavior = FunctionChoiceBehavior.Auto()  
 
         self._initialized = True
     
