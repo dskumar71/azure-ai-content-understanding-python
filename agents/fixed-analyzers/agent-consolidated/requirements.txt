@@ -1,0 +1,8 @@
+flask
+werkzeug
+azure-storage-blob
+python-dotenv
+markdown
+semantic_kernel
+pyopenssl
+cryptography
