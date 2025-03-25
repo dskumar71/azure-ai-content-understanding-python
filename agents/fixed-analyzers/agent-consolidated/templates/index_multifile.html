@@ -16,7 +16,7 @@
             <div class="header-content">
                 <div class="header-title">
                     <h1>Contoso Data Analysis Services</h1>
-                    <p class="header-subtitle">Financial Analysis Agent</p>
+                    <p class="header-subtitle">Data Analysis Agent</p>
                 </div>
                 <button id="clear-chat" class="clear-button" title="Clear chat history">
                     <i class="fas fa-trash-alt"></i>
@@ -30,7 +30,7 @@
                 <div class="welcome-message">
                     <i class="fas fa-chart-line welcome-icon"></i>
                     <h2>Welcome to Contoso Data Analysis Services</h2>
-                    <p>Start a conversation or upload a financial document for analysis.</p>
+                    <p>Start a conversation or upload data for analysis.</p>
                 </div>
             </div>
             {% else %}
@@ -77,6 +77,6 @@
         </div>
     </div>
     
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script_multifile.js') }}"></script>
 </body>
 </html>

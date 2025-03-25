@@ -65,7 +65,7 @@ def generate_sas_url(blob_name):
         return None
 
 # Process message with Semantic Kernel agent - synchronous wrapper
-def process_message_with_agent(message, user_id=None, file_url=None):
+def process_message_with_agent(message, user_id=None, file_urls=None):
     """
     Synchronous wrapper for processing messages with the Semantic Kernel agent.
     Uses the ChatSingleton to maintain conversation context.
@@ -88,18 +88,19 @@ def process_message_with_agent(message, user_id=None, file_url=None):
                 
                 # Prepare the user message with file information if available
                 user_message_content = message
-                if file_url:
-                    # Include file URL information in the message to make it available for the agent
-                    user_message_content = f"{message}\n\nI've uploaded a document, the file URL is: {file_url}. Prioritize using the plugin fields."
+                if file_urls:
+                    # Include file URLs information in the message to make it available for the agent
+                    file_urls_str = "\n".join([f"- {url}" for url in file_urls])
+                    user_message_content = f"{message}\n\nI've uploaded documents, the file URLs are:\n{file_urls_str}. Prioritize using the plugin fields."
                 
                 # Add user message to history
                 history.add_message({"role": "user", "content": user_message_content})
                 
-                # Create kernel arguments to include file_url
+                # Create kernel arguments to include file_urls
                 arguments = KernelArguments()
-                if file_url:
-                    # Format file_url as a dictionary with url property
-                    arguments["file_url"] = {"url": file_url}
+                if file_urls:
+                    # Format file_urls as a list of dictionaries with url property
+                    arguments["file_urls"] = [{"url": url} for url in file_urls]
                 
                 # Fix for async_generator - properly consume the generator
                 result_content = ""
@@ -108,17 +109,6 @@ def process_message_with_agent(message, user_id=None, file_url=None):
                 
                 # Add agent's initial response to history
                 history.add_message({"role": "assistant", "content": result_content})
-
-                # Get response from chat completion with arguments
-                # result = await chat_completion.get_chat_message_content(
-                #     chat_history=history,
-                #     settings=execution_settings,
-                #     kernel=kernel,
-                #     arguments=arguments
-                # )
-                
-                # Add assistant's response to history
-                #history.add_message({"role": "assistant", "content": result.content})
 
                 response = {
                     "text": f"{result_content}",
@@ -151,49 +141,52 @@ def index():
     if 'chat_history' not in session:
         session['chat_history'] = []
     
-    return render_template('index.html', chat_history=session['chat_history'])
+    return render_template('index_multifile.html', chat_history=session['chat_history'])
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
     message = request.form.get('message', '')
     
-    if not message and 'file' not in request.files:
-        return jsonify({'error': 'No message or file provided'}), 400
+    if not message and 'files' not in request.files:
+        return jsonify({'error': 'No message or files provided'}), 400
     
-    file_url = None
+    file_urls = []
     
-    # Handle file upload if present
-    if 'file' in request.files:
-        file = request.files['file']
-        if file and file.filename and allowed_file(file.filename):
-            # Secure the filename and generate a unique name
-            filename = secure_filename(file.filename)
-            unique_filename = f"{uuid.uuid4()}_{filename}"
-            
-            # Save locally first
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
-            file.save(file_path)
-            
-            # Upload to Azure Blob Storage
-            if CONNECTION_STRING:
-                try:
-                    blob_service_client = BlobServiceClient.from_connection_string(CONNECTION_STRING)
-                    blob_client = blob_service_client.get_blob_client(container=CONTAINER_NAME, blob=unique_filename)
-                    
-                    with open(file_path, "rb") as data:
-                        blob_client.upload_blob(data)
-                    
-                    # Generate SAS URL for the uploaded blob
-                    file_url = generate_sas_url(unique_filename)
-                except Exception as e:
-                    print(f"Error uploading to Azure Storage: {str(e)}")
-            
+    # Handle file uploads if present
+    if 'files' in request.files:
+        files = request.files.getlist('files')
+        for file in files:
+            if file and file.filename and allowed_file(file.filename):
+                # Secure the filename and generate a unique name
+                filename = secure_filename(file.filename)
+                unique_filename = f"{uuid.uuid4()}_{filename}"
+                
+                # Save locally first
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+                file.save(file_path)
+                
+                # Upload to Azure Blob Storage
+                if CONNECTION_STRING:
+                    try:
+                        blob_service_client = BlobServiceClient.from_connection_string(CONNECTION_STRING)
+                        blob_client = blob_service_client.get_blob_client(container=CONTAINER_NAME, blob=unique_filename)
+                        
+                        with open(file_path, "rb") as data:
+                            blob_client.upload_blob(data)
+                        
+                        # Generate SAS URL for the uploaded blob
+                        file_url = generate_sas_url(unique_filename)
+                        if file_url:
+                            file_urls.append(file_url)
+                    except Exception as e:
+                        print(f"Error uploading to Azure Storage: {str(e)}")
+    
     # Process the message with the agent
     user_message = {
         "sender": "user",
         "text": message,
         "timestamp": datetime.now().strftime("%H:%M"),
-        "file_url": file_url
+        "file_urls": file_urls
     }
     
     # Add user message to chat history
@@ -205,8 +198,8 @@ def send_message():
     user_id = session.get('user_id', None)
     
     # Process the message with the agent - use the synchronous wrapper directly
-    agent_response = process_message_with_agent(message, user_id, file_url)
-    
+    agent_response = process_message_with_agent(message, user_id, file_urls)
+
     # Convert markdown to HTML for the agent's response
     html_content = convert_markdown_to_html(agent_response["text"])
     
