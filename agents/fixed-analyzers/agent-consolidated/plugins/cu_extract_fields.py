@@ -21,7 +21,7 @@ class cu_extract_fields:
         
         analyzer_cleanup = False
         if not client.check_if_analyzer_exists(analyzer_id=analyzer_id):
-            analyzer_cleanup = True
+            # analyzer_cleanup = True
             analyzer = client.begin_create_analyzer(
                 analyzer_id=analyzer_id,
                 analyzer_template=analyzer_schema_file
