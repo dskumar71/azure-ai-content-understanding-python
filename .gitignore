@@ -167,3 +167,5 @@ cython_debug/
 
 # gitgnore files in upload folders but not the folders themselves
 uploads/
+
+.flask_session/

@@ -98,9 +98,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     chatMessages.innerHTML = `
                         <div class="empty-chat">
                             <div class="welcome-message">
-                                <i class="fas fa-robot welcome-icon"></i>
-                                <h2>Welcome to AI Agent Chat</h2>
-                                <p>Start a conversation or upload a file to get assistance from an agent.</p>
+                                <i class="fas fa-chart-line welcome-icon"></i>
+                                <h2>Welcome to Contoso Data Analysis Services</h2>
+                                <p>Start a conversation or upload data for analysis.</p>
                             </div>
                         </div>
                     `;
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
         messageDiv.innerHTML = `
             <div class="message-content">
                 <div class="message-header">
-                    <span class="sender-name">${sender === 'user' ? 'You' : 'AI Assistant'}</span>
+                    <span class="sender-name">${sender === 'user' ? 'You' : 'Data Analyst Assistant'}</span>
                     <span class="timestamp">${time}</span>
                 </div>
                 <div class="message-text ${sender === 'agent' ? 'markdown-body' : ''}">${sender === 'user' ? formatMessageText(text) : text}</div>

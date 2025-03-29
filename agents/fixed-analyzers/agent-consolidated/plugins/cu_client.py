@@ -3,8 +3,10 @@ from requests.models import Response
 import logging
 import json
 import time
+import random
 from pathlib import Path
 import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 class AzureContentUnderstandingClient:
     def __init__(
@@ -23,6 +25,10 @@ class AzureContentUnderstandingClient:
             raise ValueError("API version must be provided.")
         if not endpoint:
             raise ValueError("Endpoint must be provided.")
+
+        # Provide a default token provider if none is supplied
+        if token_provider is None:
+            token_provider=lambda: "your_token_here"
 
         self._endpoint = endpoint.rstrip("/")
         self._api_version = api_version
@@ -206,9 +212,39 @@ class AzureContentUnderstandingClient:
         self._logger.info(f"Analyzer {analyzer_id} deleted.")
         return response
 
+    def _retry_with_backoff(self, func, *args, max_retries=5, **kwargs):
+        """
+        Helper method to retry a function with exponential backoff.
+
+        Args:
+            func (callable): The function to retry.
+            *args: Positional arguments to pass to the function.
+            max_retries (int): Maximum number of retries.
+            **kwargs: Keyword arguments to pass to the function.
+
+        Returns:
+            Any: The result of the function call if successful.
+
+        Raises:
+            Exception: The last exception raised if all retries fail.
+        """
+        delay = 1  # Initial delay in seconds
+        for attempt in range(max_retries):
+            try:
+                return func(*args, **kwargs)
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    self._logger.warning(f"Attempt {attempt + 1} failed: {e}. Retrying in {delay} seconds...")
+                    time.sleep(delay)
+                    delay *= 2  # Exponential backoff
+                    delay += random.uniform(0, 1)  # Add jitter to avoid thundering herd
+                else:
+                    self._logger.error(f"All {max_retries} attempts failed. Raising exception.")
+                    raise
+
     def begin_analyze(self, analyzer_id: str, file_location: str):
         """
-        Begins the analysis of a file or URL using the specified analyzer.
+        Begins the analysis of a file or URL using the specified analyzer with retry logic.
 
         Args:
             analyzer_id (str): The ID of the analyzer to use.
@@ -221,40 +257,43 @@ class AzureContentUnderstandingClient:
             ValueError: If the file location is not a valid path or URL.
             HTTPError: If the HTTP request returned an unsuccessful status code.
         """
-        data = None
-        if Path(file_location).exists():
-            with open(file_location, "rb") as file:
-                data = file.read()
-            headers = {"Content-Type": "application/octet-stream"}
-        elif "https://" in file_location or "http://" in file_location:
-            data = {"url": file_location}
-            headers = {"Content-Type": "application/json"}
-        else:
-            raise ValueError("File location must be a valid path or URL.")
+        def analyze_request():
+            data = None
+            if Path(file_location).exists():
+                with open(file_location, "rb") as file:
+                    data = file.read()
+                headers = {"Content-Type": "application/octet-stream"}
+            elif "https://" in file_location or "http://" in file_location:
+                data = {"url": file_location}
+                headers = {"Content-Type": "application/json"}
+            else:
+                raise ValueError("File location must be a valid path or URL.")
 
-        headers.update(self._headers)
-        if isinstance(data, dict):
-            response = requests.post(
-                url=self._get_analyze_url(
-                    self._endpoint, self._api_version, analyzer_id
-                ),
-                headers=headers,
-                json=data,
-            )
-        else:
-            response = requests.post(
-                url=self._get_analyze_url(
-                    self._endpoint, self._api_version, analyzer_id
-                ),
-                headers=headers,
-                data=data,
-            )
+            headers.update(self._headers)
+            if isinstance(data, dict):
+                response = requests.post(
+                    url=self._get_analyze_url(
+                        self._endpoint, self._api_version, analyzer_id
+                    ),
+                    headers=headers,
+                    json=data,
+                )
+            else:
+                response = requests.post(
+                    url=self._get_analyze_url(
+                        self._endpoint, self._api_version, analyzer_id
+                    ),
+                    headers=headers,
+                    data=data,
+                )
 
-        response.raise_for_status()
-        self._logger.info(
-            f"Analyzing file {file_location} with analyzer: {analyzer_id}"
-        )
-        return response
+            response.raise_for_status()
+            self._logger.info(
+                f"Analyzing file {file_location} with analyzer: {analyzer_id}"
+            )
+            return response
+
+        return self._retry_with_backoff(analyze_request)
 
     def get_image_from_analyze_operation(
         self, analyze_response: Response, image_id: str
@@ -340,12 +379,110 @@ class AzureContentUnderstandingClient:
                 )
             time.sleep(polling_interval_seconds)
 
-if __name__ == "__main__":
-    client = AzureContentUnderstandingClient(
-        endpoint="https://hayan-test-02.services.ai.azure.com/",
-        api_version="2024-12-01-preview",
-        subscription_key="CIJEScgcJxWdSHTV4Vhn42giQKiifkAHUEE2GqBguuqPNxm0lWCKJQQJ99AKACfhMk5XJ3w3AAAAACOGfvgx",
-        token_provider=lambda: "your_token_here"
-    )
-    analyzers = client.get_all_analyzers()
-    print(json.dumps(analyzers, indent=2))
+    def process_files_in_parallel(self, analyzer_id: str, file_urls: list) -> dict:
+        """
+        Processes multiple files in parallel using the specified analyzer.
+
+        Args:
+            analyzer_id (str): The ID of the analyzer to use.
+            file_urls (list): A list of file URLs to process.
+
+        Returns:
+            dict: A dictionary containing the results for each file.
+        """
+        def process_file(file_url):
+            try:
+                response = self.begin_analyze(analyzer_id, file_url)
+                result = self.poll_result(response)
+                return {
+                    "file_url": file_url,
+                    "result": result
+                }
+            except Exception as e:
+                return {
+                    "file_url": file_url,
+                    "error": str(e)
+                }
+
+        results = {}
+        with ThreadPoolExecutor() as executor:
+            future_to_file = {executor.submit(process_file, file_url): file_url for file_url in file_urls}
+            for future in as_completed(future_to_file):
+                file_url = future_to_file[future]
+                try:
+                    result = future.result()
+                    if "error" in result:
+                        self._logger.error(f"Error processing file {file_url}: {result['error']}")
+                    else:
+                        results[file_url] = result["result"]
+                except Exception as e:
+                    self._logger.error(f"Exception processing file {file_url}: {e}")
+
+        return results
+
+    def run_cu(self, file_urls, analyzer_id, analyzer_schema_file) -> dict:
+        """
+        Processes files using the specified analyzer and schema.
+
+        Args:
+            file_urls (list or str): A list of file URLs or a single file URL to process.
+            analyzer_id (str): The ID of the analyzer to use.
+            analyzer_schema_file (str): Path to the analyzer schema file.
+
+        Returns:
+            dict: A dictionary containing the results for each file.
+        """
+        self._logger.info('Starting run_cu processing.')
+
+        # Initialize analyzer_cleanup to False
+        analyzer_cleanup = False
+
+        # Check if the analyzer exists, if not create it
+        if not self.check_if_analyzer_exists(analyzer_id=analyzer_id):
+            with open(analyzer_schema_file, "r") as f:
+                analyzer_schema = json.load(f)
+
+            analyzer = self.begin_create_analyzer(
+                analyzer_id=analyzer_id,
+                analyzer_template=analyzer_schema
+            )
+            if analyzer.status_code != 201:
+                self._logger.error(f"Analyzer creation failed. Status code: {analyzer.status_code}")
+                return {
+                    "error": f"Analyzer creation failed."
+                }
+            else:
+                self._logger.info(f"Analyzer {analyzer_id} creation request accepted.")
+
+            analyzer = self.poll_result(analyzer)
+            if analyzer["status"].lower() != "succeeded":
+                self._logger.error(f"Analyzer creation failed. Status: {analyzer['status']}")
+                return {
+                    "error": f"Analyzer creation failed."
+                }
+            else:
+                analyzer_cleanup = True
+                self._logger.info(f"Analyzer {analyzer_id} created successfully.")
+
+        if isinstance(file_urls, str):
+            file_urls = [file_urls]
+        elif not isinstance(file_urls, list):
+            return {
+                "error": "file_urls should be a list or a string."
+            }
+
+        # Use the parallel processing method
+        file_outputs = self.process_files_in_parallel(analyzer_id, file_urls)
+
+        # Cleanup the analyzer if it was created in this run
+        if analyzer_cleanup == True:
+            cleanup = self.delete_analyzer(analyzer_id)
+            if cleanup.status_code != 204:
+                self._logger.error(f"Analyzer deletion failed. Status code: {cleanup.status_code}")
+                return {
+                    "error": f"Analyzer deletion failed."
+                }
+            else:
+                self._logger.info(f"Analyzer {analyzer_id} deleted successfully.")
+
+        return file_outputs

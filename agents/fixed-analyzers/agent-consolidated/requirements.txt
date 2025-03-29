@@ -6,3 +6,4 @@ markdown
 semantic_kernel
 pyopenssl
 cryptography
+flask-session

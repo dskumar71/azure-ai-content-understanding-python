@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, jsonify, session
+from flask import Flask, render_template, request, jsonify, session  # Added `session` to the imports
+from flask_session import Session
 from werkzeug.utils import secure_filename
 import os
 import uuid
@@ -16,6 +17,18 @@ import markdown  # Added import for markdown processing
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "default-dev-key")
+
+# Configure file-based session storage
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_FILE_DIR'] = './.flask_session'
+app.config['SESSION_PERMANENT'] = False
+app.config['SESSION_USE_SIGNER'] = True
+
+# Ensure the session directory exists
+os.makedirs(app.config['SESSION_FILE_DIR'], exist_ok=True)
+
+# Initialize the session
+Session(app)
 
 # Configuration
 UPLOAD_FOLDER = './uploads'
@@ -135,6 +148,11 @@ def process_message_with_agent(message, user_id=None, file_urls=None):
             "timestamp": datetime.now().strftime("%H:%M")
         }
 
+@app.before_request
+def log_session_data():
+    print(f"Session data before request: {session}")
+    print(f"Session file directory: {app.config['SESSION_FILE_DIR']}")
+
 @app.route('/')
 def index():
     # Initialize chat history if it doesn't exist
@@ -178,6 +196,14 @@ def send_message():
                         file_url = generate_sas_url(unique_filename)
                         if file_url:
                             file_urls.append(file_url)
+
+                        # Delete the local file after upload
+                        try:
+                            if os.path.exists(file_path):
+                                os.remove(file_path)
+                        except Exception as e:
+                            print(f"Error deleting local file: {str(e)}")
+
                     except Exception as e:
                         print(f"Error uploading to Azure Storage: {str(e)}")
     
@@ -193,7 +219,9 @@ def send_message():
     if 'chat_history' not in session:
         session['chat_history'] = []
     session['chat_history'].append(user_message)
-    
+    session.modified = True
+    # print(f"Updated session data: {session}")
+
     # Get user_id from session for conversation tracking
     user_id = session.get('user_id', None)
     
@@ -221,6 +249,7 @@ def send_message():
 @app.route('/clear_chat', methods=['POST'])
 def clear_chat():
     session['chat_history'] = []
+    print("Session cleared.")
     
     # Clear the chat history in the singleton as well
     loop = asyncio.new_event_loop()
