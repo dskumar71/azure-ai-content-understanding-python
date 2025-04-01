@@ -3,7 +3,10 @@ werkzeug
 azure-storage-blob
 python-dotenv
 markdown
-semantic_kernel
+semantic_kernel == 1.25.0
 pyopenssl
 cryptography
 flask-session
+autogen
+azure.ai.projects
+boto3

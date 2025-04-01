@@ -27,6 +27,7 @@ class CallCenterRecordingParserPlugin:
     @kernel_function
     def CallCenterRecordingParserPlugin(self, file_urls):
         print("\nRunning CallCenterRecordingParserPlugin")
+        print(json.dumps(file_urls, indent=2))
         start_time = time.time()
         analyzer_id = 'callcenter-analyzer-agent-sample'
         analyzer_schema_file='../../../analyzer_templates/call_recording_analytics.json'
