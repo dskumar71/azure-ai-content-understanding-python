@@ -9,6 +9,7 @@ class TenKParserPlugin:
     @kernel_function
     def TenKParserPlugin(self, file_urls):
         print("\nRunning TenKParserPlugin")
+        print(json.dumps(file_urls, indent=2))
         start_time = time.time()
         analyzer_id = 'financial-analyzer-agent-sample'
         analyzer_schema_file='../../../analyzer_templates/financial_report.json'
@@ -46,6 +47,7 @@ class InvoiceParserPlugin:
     @kernel_function
     def InvoiceParserPlugin(self, file_urls):
         print("\nRunning InvoiceParserPlugin")
+        print(json.dumps(file_urls, indent=2))
         start_time = time.time()
         analyzer_id = 'invoice-analyzer-agent-sample'
         analyzer_schema_file='../../../analyzer_templates/invoice.json'
@@ -64,6 +66,7 @@ class MarketingVideoParserPlugin:
     @kernel_function
     def MarketingVideoParserPlugin(self, file_urls):
         print("\nRunning MarketingVideoParserPlugin")
+        print(json.dumps(file_urls, indent=2))
         start_time = time.time()
         analyzer_id = 'marketing-video-analyzer-agent-sample'
         analyzer_schema_file='../../../analyzer_templates/marketing_video.json'
