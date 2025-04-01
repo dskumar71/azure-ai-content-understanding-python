@@ -420,7 +420,7 @@ class AzureContentUnderstandingClient:
 
         return results
 
-    def run_cu(self, file_urls, analyzer_id, analyzer_schema_file) -> dict:
+    def run_cu(self, file_urls, analyzer_id, analyzer_schema) -> dict:
         """
         Processes files using the specified analyzer and schema.
 
@@ -439,9 +439,6 @@ class AzureContentUnderstandingClient:
 
         # Check if the analyzer exists, if not create it
         if not self.check_if_analyzer_exists(analyzer_id=analyzer_id):
-            with open(analyzer_schema_file, "r") as f:
-                analyzer_schema = json.load(f)
-
             analyzer = self.begin_create_analyzer(
                 analyzer_id=analyzer_id,
                 analyzer_template=analyzer_schema
