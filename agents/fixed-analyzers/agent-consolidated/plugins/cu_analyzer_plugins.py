@@ -5,7 +5,7 @@ import time
 # from plugins.dynamic_schema_generator import generate_dynamic_field_schema
 
 class TenKParserPlugin:
-    """This is a plugin to parse annual financial reports also known as 10K files and extracts the relevant fields from the document. It should only be used for this type of file. Also produces a markdown representation of the document for adding to a vector store for RAG."""
+    """This is a plugin to parse annual financial reports also known as 10K files  which can be passed as a list of URLs and extracts relevant pre-defined fields from it. Field results from the plugin should always be presented. It should only be used for this type of file. Also produces a markdown representation of the document for adding to a vector store for RAG."""
     @kernel_function
     def TenKParserPlugin(self, file_urls):
         print("\nRunning TenKParserPlugin")
@@ -24,7 +24,7 @@ class TenKParserPlugin:
         return result
 
 class CallCenterRecordingParserPlugin:
-    """This is a plugin to parse and extract information from call recording audio files and extracts relevant pre-defined fields from it. Also produces a markdown representation of the audio transcript as WEBVTT for adding to a vector store for RAG or answer additional questions not part of the plugin results with."""
+    """This is a plugin to parse and extract information from call recording audio files which can be passed as a list of URLs and extracts relevant pre-defined fields from it. Field results from the plugin should always be presented. Also produces a markdown representation of the audio transcript as WEBVTT for adding to a vector store for RAG or answer additional questions not part of the plugin results with."""
     @kernel_function
     def CallCenterRecordingParserPlugin(self, file_urls):
         print("\nRunning CallCenterRecordingParserPlugin")
@@ -43,7 +43,7 @@ class CallCenterRecordingParserPlugin:
         return result
 
 class InvoiceParserPlugin:
-    """This is a plugin to parse and extract information from invoices and extracts relevant pre-defined fields from it. Also produces a markdown representation of the invocies for adding to a vector store for RAG or answer additional questions not part of the plugin results with."""
+    """This is a plugin to parse and extract information from invoices which can be passed as a list of URLs and extracts relevant pre-defined fields from it. Field results from the plugin should always be presented. Also produces a markdown representation of the invocies for adding to a vector store for RAG or answer additional questions not part of the plugin results with."""
     @kernel_function
     def InvoiceParserPlugin(self, file_urls):
         print("\nRunning InvoiceParserPlugin")
@@ -62,7 +62,7 @@ class InvoiceParserPlugin:
         return result
 
 class MarketingVideoParserPlugin:
-    """This is a plugin to parse and extract information from videos and extracts relevant pre-defined fields regarding marketing information from it. Also produces a markdown representation of the video segments for adding to a vector store for RAG or answer additional questions not part of the plugin results with."""
+    """This is a plugin to parse and extract information from videos  which can be passed as a list of URLs and extracts relevant pre-defined fields from it. Field results from the plugin should always be presented. Also produces a markdown representation of the video segments for adding to a vector store for RAG or answer additional questions not part of the plugin results with."""
     @kernel_function
     def MarketingVideoParserPlugin(self, file_urls):
         print("\nRunning MarketingVideoParserPlugin")

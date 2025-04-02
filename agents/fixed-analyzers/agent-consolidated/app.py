@@ -15,6 +15,10 @@ from kernel import ChatSingleton
 from semantic_kernel.functions.kernel_arguments import KernelArguments
 import markdown  # Added import for markdown processing
 
+#Create .flask_session directory if it doesn't exist
+os.makedirs('./.flask_session', exist_ok=True)
+
+# Initialize Flask app
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "default-dev-key")
 
@@ -112,8 +116,8 @@ def process_message_with_agent(message, user_id=None, file_urls=None):
                 # Create kernel arguments to include file_urls
                 arguments = KernelArguments()
                 if file_urls:
-                    # Format file_urls as a list of dictionaries with url property
-                    arguments["file_urls"] = [{"url": url} for url in file_urls]
+                    # Format file_urls as a list
+                    arguments["file_urls"] = [url for url in file_urls]
                 
                 # Fix for async_generator - properly consume the generator
                 result_content = ""
@@ -206,6 +210,8 @@ def send_message():
 
                     except Exception as e:
                         print(f"Error uploading to Azure Storage: {str(e)}")
+
+        print(f"Files uploaded to Azure Storage:\n{json.dumps(file_urls, indent=2)}")
     
     # Process the message with the agent
     user_message = {
