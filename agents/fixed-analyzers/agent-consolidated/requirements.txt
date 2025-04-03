@@ -3,7 +3,7 @@ werkzeug
 azure-storage-blob
 python-dotenv
 markdown
-semantic_kernel == 1.25.0
+semantic_kernel
 pyopenssl
 cryptography
 flask-session

@@ -102,7 +102,7 @@ def process_message_with_agent(message, user_id=None, file_urls=None):
                 agent = chat_singleton.get_agent()
                 history = chat_singleton.get_history()
                 execution_settings = chat_singleton.get_execution_settings()
-                
+
                 # Prepare the user message with file information if available
                 user_message_content = message
                 if file_urls:
@@ -121,8 +121,8 @@ def process_message_with_agent(message, user_id=None, file_urls=None):
                 
                 # Fix for async_generator - properly consume the generator
                 result_content = ""
-                async for partial in agent.invoke(history):
-                    result_content += partial.content if hasattr(partial, "content") else str(partial)
+                async for partial in agent.invoke(messages=history):
+                    result_content += str(partial.content) if hasattr(partial, "content") else str(partial)
                 
                 # Add agent's initial response to history
                 history.add_message({"role": "assistant", "content": result_content})
