@@ -7,10 +7,10 @@
     "config": {
         "enableFace": false,
         "enableOcr": true,
-        "enableLayout": true,
+        "enableLayout": false,
         "enableBarcode": true,
         "enableFormula": false,
-        "returnDetails": true
+        "returnDetails": false
     },
     "fieldSchema": {
         "fields": {

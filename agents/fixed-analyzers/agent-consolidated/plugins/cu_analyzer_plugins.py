@@ -5,7 +5,7 @@ import time
 # from plugins.dynamic_schema_generator import generate_dynamic_field_schema
 
 class TenKParserPlugin:
-    """This is a plugin to parse annual financial reports also known as 10K files  which can be passed as a list of URLs and extracts relevant pre-defined fields from it. Field results from the plugin should always be presented. It should only be used for this type of file. Also produces a markdown representation of the document for adding to a vector store for RAG."""
+    """This is a plugin to parse annual financial reports also known as 10K files which can be passed as a list or string containing the URLs and extracts relevant pre-defined fields from it. Field results from the plugin should always be presented. It should only be used for this type of file. Also produces a markdown representation of the document for adding to a vector store for RAG."""
     @kernel_function
     def TenKParserPlugin(self, file_urls):
         print("\nRunning TenKParserPlugin")
