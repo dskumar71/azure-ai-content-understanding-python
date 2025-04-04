@@ -463,8 +463,6 @@ class AzureContentUnderstandingClient:
 
         if isinstance(file_urls, str):
             file_urls = [file_urls]
-        elif isinstance(file_urls, dict):
-            file_urls = list(file_urls.values())
         elif not isinstance(file_urls, list):
             return {
                 "error": "file_urls should be a list or a string."

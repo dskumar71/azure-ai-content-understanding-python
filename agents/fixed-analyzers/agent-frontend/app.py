@@ -103,7 +103,7 @@ def process_message_with_agent(message, user_id=None, file_url=None):
                 
                 # Fix for async_generator - properly consume the generator
                 result_content = ""
-                async for partial in agent.invoke(messages=history):
+                async for partial in agent.invoke(history):
                     result_content += str(partial.content) if hasattr(partial, "content") else str(partial)
                 
                 # Add agent's initial response to history
