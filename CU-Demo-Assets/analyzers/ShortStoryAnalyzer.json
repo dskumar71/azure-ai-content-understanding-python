@@ -1,5 +1,5 @@
 {
-    "scenario": "text",
+    "scenario": "text", 
     "description": "Conversation analytics chat and pre-trancsribed audio transcripts",
     "config": {
         "returnDetails": true
