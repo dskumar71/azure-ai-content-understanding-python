@@ -1,0 +1,136 @@
+{
+  "id": "5766d6c4-00e5-49a1-9ee1-1d13e0c9d115",
+  "status": "Succeeded",
+  "result": {
+    "analyzerId": "cu-demo-a1660c03-7e8a-4889-92a6-3c806de4a47d",
+    "apiVersion": "2024-12-01-preview",
+    "createdAt": "2025-04-15T21:01:40Z",
+    "warnings": [],
+    "contents": [
+      {
+        "markdown": "```WEBVTT\n\n00:03.120 --> 00:04.480\n<v Speaker 1>Good afternoon, Susan.\n\n00:04.880 --> 00:05.600\n<v Speaker 1>How are you today?\n\n00:06.080 --> 00:06.720\n<v Speaker 2>Hello, Jenny.\n\n00:06.720 --> 00:07.760\n<v Speaker 2>I'm well, thank you.\n\n00:07.760 --> 00:08.320\n<v Speaker 2>How about you?\n\n00:09.120 --> 00:10.640\n<v Speaker 1>Yeah, I'm doing well, thank you.\n\n00:10.960 --> 00:12.000\n<v Speaker 1>How is everything?\n\n00:12.160 --> 00:13.880\n<v Speaker 1>Has Jane started to settle now?\n\n00:14.480 --> 00:17.840\n<v Speaker 2>Yeah, she seems happy and settled at the moment, which is great to see.\n\n00:18.320 --> 00:19.440\n<v Speaker 1>Oh, that's great to hear.\n\n00:20.240 --> 00:22.000\n<v Speaker 2>Generally, her mood is positive.\n\n00:22.000 --> 00:24.360\n<v Speaker 2>She doesn't complain about much at all.\n\n00:24.360 --> 00:26.160\n<v Speaker 1>Oh, and that's really great to hear, Susan.\n\n00:26.720 --> 00:28.480\n<v Speaker 1>How is she health-wise?\n\n00:29.040 --> 00:31.760\n<v Speaker 1>Any concerns or recent illnesses?\n\n00:32.560 --> 00:34.240\n<v Speaker 2>Nothing to report at this stage.\n\n00:34.240 --> 00:40.880\n<v Speaker 2>She is generally fit and healthy, although we have noticed some secret binge eating, but in general, she is her happy self.\n\n00:41.280 --> 00:44.960\n<v Speaker 2>Touch wood, she hasn't been unwell recently.\n\n00:45.440 --> 00:47.680\n<v Speaker 2>She hasn't had any bad episodes of asthma.\n\n00:48.080 --> 00:52.120\n<v Speaker 2>We had an appointment last week with a consultant for a checkup and everything was fine.\n\n00:53.200 --> 00:54.080\n<v Speaker 1>Oh, right, okay.\n\n00:54.800 --> 00:56.720\n<v Speaker 1>Has she been managing her asthma okay?\n\n00:57.040 --> 00:58.400\n<v Speaker 2>Yeah, she's been really good.\n\n00:58.400 --> 01:05.360\n<v Speaker 2>She's been taking her pumps with her to netball, school and youth club and been using them without me or her teachers, giving her a nudge.\n\n01:05.600 --> 01:07.680\n<v Speaker 2>She's really started to become independent with it.\n\n01:08.320 --> 01:09.360\n<v Speaker 1>Oh, that's excellent.\n\n01:10.000 --> 01:15.720\n<v Speaker 1>I know she was getting a bit embarrassed about taking her pumps to school at one point, so this is great to hear.\n\n01:16.320 --> 01:22.600\n<v Speaker 2>Yeah, she was, but there is another girl in her form now who also has a pump, so I think she feels less conscious about it now.\n\n01:22.600 --> 01:24.160\n<v Speaker 1>And that's good.\n\n01:24.720 --> 01:27.080\n<v Speaker 1>You mentioned secret binge eating.\n\n01:27.760 --> 01:28.840\n<v Speaker 1>Tell me a little bit about that.\n\n01:28.840 --> 01:38.880\n<v Speaker 2>Yeah, we're not sure how long it's been going on for, but John and I were cleaning the house last week and in Jane's bin in her bedroom we noticed a number of chocolate wrappers and crisp packets.\n\n01:39.760 --> 01:42.400\n<v Speaker 1>Would you say it was a reasonable amount to expect?\n\n01:43.360 --> 01:50.480\n<v Speaker 2>We empty a bin daily and one day we saw 4 packets of crisps and three chocolate bars, so I would say that's quite unnecessary.\n\n01:51.280 --> 01:53.040\n<v Speaker 1>Yeah, that does sound a bit much.\n\n01:53.680 --> 01:54.960\n<v Speaker 1>Have you spoken to her about it?\n\n01:55.440 --> 02:00.480\n<v Speaker 2>We have mentioned to her about the sugar content and about taking what she doesn't need.\n\n02:00.480 --> 02:05.760\n<v Speaker 2>We have made a new rule in the house that she asks to have something from the tree cupboard now instead of just helping herself.\n\n02:06.280 --> 02:07.760\n<v Speaker 1>And that sounds like a good plan.\n\n02:08.480 --> 02:09.680\n<v Speaker 1>How did she take it?\n\n02:10.240 --> 02:11.200\n<v Speaker 1>Has she been following it?\n\n02:11.760 --> 02:15.480\n<v Speaker 2>To be fair to her, she has been asking either me or John before she goes in there.\n\n02:15.480 --> 02:18.880\n<v Speaker 2>It seems to be mainly in the evenings between her dinner and going to bed.\n\n02:19.560 --> 02:22.400\n<v Speaker 1>And do you think there's been a necessary trigger for this behaviour?\n\n02:22.960 --> 02:29.120\n<v Speaker 2>If I'm honest, I think it's since her grandmother passed away, she's been very upset about it all and I think she may be comfy eating.\n\n02:29.920 --> 02:32.160\n<v Speaker 1>Okay, that could be the cause.\n\n02:32.880 --> 02:34.720\n<v Speaker 1>I know you will, but will you keep an eye on it?\n\n02:35.400 --> 02:36.200\n<v Speaker 2>Yes, we will.\n\n02:36.200 --> 02:39.280\n<v Speaker 2>We have been dropping in conversations about healthy options too.\n\n02:39.560 --> 02:44.120\n<v Speaker 2>We started to buy alternatives like sweet breakfast bars instead of chocolate bars and things like that.\n\n02:44.760 --> 02:45.840\n<v Speaker 1>That's a great idea.\n\n02:46.800 --> 02:48.240\n<v Speaker 1>How are things going in school?\n\n02:48.800 --> 02:51.040\n<v Speaker 1>Has the recent loss had an effect on school?\n\n02:51.480 --> 02:54.200\n<v Speaker 2>We received a school report last week and it was lovely.\n\n02:54.200 --> 02:55.680\n<v Speaker 2>It was such a positive report.\n\n02:56.000 --> 03:01.600\n<v Speaker 2>The teachers said that she's really attentive and has a lovely group of friends that she engages well with throughout lessons.\n\n03:02.200 --> 03:04.000\n<v Speaker 1>Oh wow, I bet you're feeling proud.\n\n03:04.360 --> 03:05.440\n<v Speaker 1>That's lovely news.\n\n03:05.760 --> 03:06.640\n<v Speaker 2>Absolutely.\n\n03:06.640 --> 03:09.000\n<v Speaker 2>She's knuckled down this year and we are so pleased.\n\n03:09.920 --> 03:11.960\n<v Speaker 1>How has she been getting on with yourself and John?\n\n03:12.880 --> 03:14.160\n<v Speaker 2>I feel that she's getting on great.\n\n03:14.160 --> 03:18.760\n<v Speaker 2>She's been joining us for dinner and sitting with us after it too to watch TV and things like that.\n\n03:18.960 --> 03:21.200\n<v Speaker 2>She's really starting to warm into our family.\n\n03:21.800 --> 03:22.960\n<v Speaker 1>That's excellent news.\n\n03:23.280 --> 03:30.280\n<v Speaker 1>And I think what you're doing is great by giving her that opportunity to spend time in both, but not forcing her to either.\n\n03:30.800 --> 03:33.480\n<v Speaker 2>I'd prefer to encourage her and let her do it in her own time.\n\n03:33.680 --> 03:36.800\n<v Speaker 2>She has asked about adoption and when things like that tend to happen.\n\n03:37.040 --> 03:39.760\n<v Speaker 2>It did surprise me, but she came out with it.\n\n03:40.720 --> 03:41.440\n<v Speaker 1>Oh, okay.\n\n03:42.160 --> 03:46.760\n<v Speaker 1>Was she asking about it in a positive way, or do you think she was concerned about it?\n\n03:47.360 --> 03:51.120\n<v Speaker 2>She was definitely inquisitive and she started asking us whether we would adopt her.\n\n03:51.360 --> 03:52.800\n<v Speaker 2>We didn't really know what to say.\n\n03:52.800 --> 03:55.440\n<v Speaker 2>It put us in a bit of a difficult situation, if I'm honest.\n\n03:55.440 --> 03:56.800\n<v Speaker 2>We haven't really considered it.\n\n03:57.600 --> 04:00.560\n<v Speaker 1>It sounds like Jane is starting to settle more than you may think.\n\n04:01.120 --> 04:07.440\n<v Speaker 1>I think it's a positive thing that she started to ask these questions, but I appreciate it can be difficult to respond.\n\n04:07.920 --> 04:11.040\n<v Speaker 2>It caught me off guard and I just said, well, we'll see how things go.\n\n04:11.920 --> 04:23.360\n<v Speaker 1>Okay, what I can do is do some direct work with Jane, just about the process of adoption, what happens throughout the process, and hopefully answer any questions she may have.\n\n04:23.960 --> 04:25.600\n<v Speaker 1>That might take the pressure off you and John.\n\n04:25.800 --> 04:26.560\n<v Speaker 1>What do you think?\n\n04:26.880 --> 04:27.920\n<v Speaker 2>This would be great.\n\n04:28.240 --> 04:30.800\n<v Speaker 2>Just to give her a little bit more insight into what goes on.\n\n04:31.120 --> 04:34.640\n<v Speaker 2>I think she's just starting to get to the age where she's thinking more into the future.\n\n04:35.520 --> 04:36.360\n<v Speaker 1>Whilst I remember,\n\n04:37.120 --> 04:40.640\n<v Speaker 1>Jane has also asked for additional time during contact with Mum.\n\n04:41.280 --> 04:43.000\n<v Speaker 1>I know we spoke about it last time.\n\n04:43.000 --> 04:46.240\n<v Speaker 1>I was just wondering if you had an update on it.\n\n04:48.240 --> 04:55.320\n<v Speaker 1>So I've spoken with the contact centre to see what they can offer and they're able to provide an additional 2 hour slot per week.\n\n04:55.920 --> 04:59.960\n<v Speaker 1>I need to reach out to Mum to see if she's available to do it before we speak to Jane.\n\n05:01.040 --> 05:01.520\n<v Speaker 2>Perfect.\n\n05:01.520 --> 05:03.200\n<v Speaker 2>Jane would love it if this could happen.\n\n05:04.960 --> 05:06.880\n<v Speaker 1>How has Jane been outside of school?\n\n05:07.280 --> 05:10.560\n<v Speaker 1>I know you mentioned that she started to sit with you in the evenings, which is great.\n\n05:10.560 --> 05:12.960\n<v Speaker 1>What has she been like on the weekends?\n\n05:13.360 --> 05:15.040\n<v Speaker 2>Her behaviour is up and down.\n\n05:15.120 --> 05:19.280\n<v Speaker 2>I do think it's a result of her Nan passing, but last weekend was very challenging.\n\n05:19.840 --> 05:22.560\n<v Speaker 1>Okay, tell me a bit about what that looks like.\n\n05:23.000 --> 05:27.360\n<v Speaker 2>On the weekend, we try and do something exciting, but lately she hasn't wanted to do anything.\n\n05:27.680 --> 05:31.600\n<v Speaker 2>It's got to the point last weekend where she completely shut down and didn't engage at all.\n\n05:31.920 --> 05:35.040\n<v Speaker 2>She went to her bedroom and sat scrolling on her phone for hours.\n\n05:35.320 --> 05:40.080\n<v Speaker 2>We were checking in on her, but she would just shrug her shoulders or shake her head when we were trying to speak with her.\n\n05:40.880 --> 05:42.240\n<v Speaker 1>And do you think there's any triggers?\n\n05:42.720 --> 05:44.080\n<v Speaker 2>Nothing that sprung to mind.\n\n05:44.080 --> 05:44.880\n<v Speaker 2>I just think she had...\n\n05:46.560 --> 05:49.600\n<v Speaker 2>a bit more time to think and she got herself upset about her nan.\n\n05:50.520 --> 05:52.240\n<v Speaker 1>And that's completely natural, isn't it?\n\n05:52.880 --> 05:55.600\n<v Speaker 1>Has she ever been aggressive towards you or anything?\n\n05:55.680 --> 05:56.960\n<v Speaker 2>No, nothing like that.\n\n05:57.280 --> 05:59.360\n<v Speaker 2>She doesn't even shout or raise a voice at her.\n\n05:59.440 --> 06:02.320\n<v Speaker 2>She just becomes very withdrawn and goes upstairs to her room.\n\n06:04.160 --> 06:06.800\n<v Speaker 2>It's strange, but I guess it's just something she's going through.\n\n06:07.280 --> 06:13.280\n<v Speaker 2>On another note, though, she has been bringing up her friends here after school, and they are a really nice group of girls.\n\n06:13.280 --> 06:17.680\n<v Speaker 2>They spend most of the time dancing and copying TikToks, but she's really happy with them.\n\n06:18.560 --> 06:20.640\n<v Speaker 1>It's great that she has a nice friendship group.\n\n06:20.840 --> 06:22.480\n<v Speaker 1>That's one less thing to worry about.\n\n06:22.960 --> 06:23.920\n<v Speaker 2>It really is.\n\n06:24.160 --> 06:26.800\n<v Speaker 2>In the summer, I know she's going to stay with mum for a few days.\n\n06:27.040 --> 06:31.200\n<v Speaker 2>Both John and I are a little worried about her not wanting to return to us after the stay.\n\n06:31.760 --> 06:36.240\n<v Speaker 2>I'm concerned that she'll want to stay with him and at the moment we know that that's not the best option.\n\n06:37.480 --> 06:39.520\n<v Speaker 1>That is a natural concern to have, Susan.\n\n06:40.240 --> 06:46.040\n<v Speaker 1>I think to try and mitigate it, we need to ensure the message to Jane is clear about the purpose of the visit.\n\n06:46.640 --> 06:51.960\n<v Speaker 1>We don't want her to feel like that we don't want her to go, but we just need to manage her expectations.\n\n06:52.320 --> 06:54.160\n<v Speaker 1>We can revisit it closer to the time.\n\n06:54.720 --> 06:57.600\n<v Speaker 2>Yeah, I don't want to upset her before the end of her exams.\n\n06:58.080 --> 06:58.880\n<v Speaker 1>Of course.\n\n06:59.360 --> 07:00.480\n<v Speaker 1>How are her exams going?\n\n07:00.880 --> 07:01.920\n<v Speaker 2>Good so far.\n\n07:01.920 --> 07:03.920\n<v Speaker 2>She's been revising about three days a week.\n\n07:04.400 --> 07:09.200\n<v Speaker 2>At the start she needed some encouragement, but recently she's been doing it off her own back.\n\n07:09.440 --> 07:11.760\n<v Speaker 2>I think she started to realise the importance of it.\n\n07:12.240 --> 07:16.080\n<v Speaker 2>She came out of her exam last week and said it was easier than she thought.\n\n07:16.560 --> 07:23.040\n<v Speaker 2>We said to her that it was difficult, that it was because she put the work in with revising, so she would find it easier.\n\n07:23.440 --> 07:24.880\n<v Speaker 2>Things are starting to click.\n\n07:25.040 --> 07:29.200\n<v Speaker 2>The last four weeks have been tough for her, but she has always found time to revise.\n\n07:29.200 --> 07:31.040\n<v Speaker 2>I think it's a bit of an escape for her too.\n\n07:31.920 --> 07:32.720\n<v Speaker 1>That is very mature.\n\n07:32.920 --> 07:34.560\n<v Speaker 1>I'm glad it's going well for her.\n\n07:35.200 --> 07:37.680\n<v Speaker 1>Did school honour the extra exam time too?\n\n07:38.640 --> 07:39.200\n<v Speaker 2>They did.\n\n07:39.200 --> 07:42.880\n<v Speaker 2>She gets an additional 20% on top of full exam time.\n\n07:43.000 --> 07:44.640\n<v Speaker 2>I think she's found it very useful too.\n\n07:44.640 --> 07:45.520\n<v Speaker 1>Oh, good.\n\n07:45.520 --> 07:46.400\n<v Speaker 1>That's great for her.\n\n07:47.120 --> 07:49.280\n<v Speaker 1>I'm glad school have been supportive with this.\n\n07:49.760 --> 07:50.680\n<v Speaker 2>We're so pleased.\n\n07:50.680 --> 07:52.800\n<v Speaker 2>We want to take her away after the exams are over.\n\n07:53.040 --> 07:55.680\n<v Speaker 2>Obviously, we just need to make sure that we have her passport in time.\n\n07:56.240 --> 07:59.040\n<v Speaker 1>I will trace the application when I'm back in the office.\n\n07:59.360 --> 08:03.960\n<v Speaker 1>I have put one in and I've had confirmation that they've received it, so it won't be long.\n\n08:04.760 --> 08:07.320\n<v Speaker 1>I'll give them a nudge to see if they can give us a time frame though.\n\n08:07.680 --> 08:09.200\n<v Speaker 2>That would be really helpful.\n\n08:09.200 --> 08:09.520\n<v Speaker 2>Thank you.\n\n08:10.800 --> 08:13.520\n<v Speaker 1>Have yourself or John completed any training recently?\n\n08:13.760 --> 08:20.720\n<v Speaker 2>Not recently, but we have inquired about a course that's running in the community in October around first aid.\n\n08:21.920 --> 08:25.280\n<v Speaker 1>We've received all of the recordings from you both too, so that's been great.\n\n08:26.080 --> 08:31.120\n<v Speaker 1>I think the training in October would be really good for you both, so make sure you join that too.```",
+        "fields": {
+          "Actions": {
+            "type": "string",
+            "valueString": "Jenny will trace the passport application and give a nudge to see if they can provide a time frame. Susan and John are encouraged to join the first aid training course in October."
+          },
+          "AdditionalSupportTraining": {
+            "type": "string",
+            "valueString": "Susan and John have inquired about a first aid course running in October."
+          },
+          "Finances": {
+            "type": "string"
+          },
+          "FosterCarerLogs": {
+            "type": "string",
+            "valueString": "Jenny has received all of the recordings from Susan and John."
+          },
+          "FosterCarerWellbeing": {
+            "type": "string",
+            "valueString": "Susan feels that Jane is getting on great with her and John, joining them for dinner and sitting with them after to watch TV. Susan and John are a little worried about Jane not wanting to return after staying with Mum."
+          },
+          "LearningDevelopment": {
+            "type": "string",
+            "valueString": "Susan and John have inquired about a first aid course running in October. Jenny encourages them to join the training."
+          },
+          "Reflection": {
+            "type": "string",
+            "valueString": "Jane is settling well and starting to warm into the family. Susan prefers to encourage Jane and let her do things in her own time. Jane's inquisitiveness about adoption is seen as a positive sign of her settling."
+          },
+          "ReviewActionsOfLastSupervision": {
+            "type": "string",
+            "valueString": "Jenny and Susan discussed Jane's request for additional contact time with Mum, which was spoken about last time. Jenny has arranged for an additional 2-hour slot per week."
+          },
+          "SocialWorkerName": {
+            "type": "string",
+            "valueString": "Jenny"
+          },
+          "ChildActions": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "Jane: Jenny will do some direct work with Jane about the process of adoption to answer any questions she may have."
+              }
+            ]
+          },
+          "ChildContact": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "Jane: Jane has asked for additional time during contact with Mum. Jenny has spoken with the contact centre to provide an additional 2-hour slot per week, pending Mum's availability."
+              }
+            ]
+          },
+          "ChildEducationTrainingEmployment": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "Jane: Jane received a positive school report, is attentive, and has a lovely group of friends. She has been revising for exams and finds it a bit of an escape."
+              }
+            ]
+          },
+          "ChildEmotionalBehavioralDevelopment": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "Jane: Jane's mood is generally positive, but she has been binge eating since her grandmother passed away, possibly as comfort eating. Her behavior is up and down, especially on weekends, and she becomes withdrawn."
+              }
+            ]
+          },
+          "ChildHealth": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "Jane: Jane is generally fit and healthy, managing her asthma well by taking her pumps to netball, school, and youth club independently. She had a checkup with a consultant, and everything was fine."
+              }
+            ]
+          },
+          "ChildIdentity": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "Jane: Jane has asked about adoption and whether Susan and John would adopt her, indicating she is thinking more about her future."
+              }
+            ]
+          },
+          "ChildPromotingLeisureActivities": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "Jane: Jane has been bringing her friends home after school, and they spend time dancing and copying TikToks."
+              }
+            ]
+          },
+          "ChildSocialCulturalNeedsWellbeing": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "Jane: Jane has a nice friendship group and is happy with them. She is going to stay with Mum for a few days in the summer."
+              }
+            ]
+          },
+          "FosterChildren": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "Jane"
+              }
+            ]
+          }
+        },
+        "kind": "audioVisual",
+        "startTimeMs": 0,
+        "endTimeMs": 516885
+      }
+    ]
+  }
+}

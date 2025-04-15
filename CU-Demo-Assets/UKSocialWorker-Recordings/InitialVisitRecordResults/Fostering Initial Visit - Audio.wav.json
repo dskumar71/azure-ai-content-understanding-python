@@ -1,0 +1,133 @@
+{
+  "id": "2d1a6b95-ba33-4660-a63b-62e1aca0930d",
+  "status": "Succeeded",
+  "result": {
+    "analyzerId": "cu-demo-57cbe129-30c5-4f40-855e-fb4b7d640f8f",
+    "apiVersion": "2024-12-01-preview",
+    "createdAt": "2025-04-15T21:05:53Z",
+    "warnings": [],
+    "contents": [
+      {
+        "markdown": "```WEBVTT\n\n00:02.720 --> 00:03.600\n<v Speaker 1>Morning, Joe.\n\n00:04.000 --> 00:04.880\n<v Speaker 1>How are you today?\n\n00:05.640 --> 00:06.640\n<v Speaker 2>Good morning, Jenny.\n\n00:06.840 --> 00:08.080\n<v Speaker 2>I'm doing well, thank you.\n\n00:08.520 --> 00:09.400\n<v Speaker 1>That's great to hear.\n\n00:10.200 --> 00:12.000\n<v Speaker 1>Thank you for agreeing to meet with me today.\n\n00:12.480 --> 00:13.800\n<v Speaker 2>That's okay, no problem.\n\n00:14.560 --> 00:21.360\n<v Speaker 1>So today, I'd just like to have a chat, touch on some things that you've submitted in your application.\n\n00:21.920 --> 00:22.880\n<v Speaker 1>Does that sound okay?\n\n00:23.280 --> 00:24.320\n<v Speaker 2>Yes, sure.\n\n00:24.480 --> 00:25.120\n<v Speaker 2>Sounds good.\n\n00:26.080 --> 00:26.400\n<v Speaker 1>Great.\n\n00:26.800 --> 00:30.360\n<v Speaker 1>So I see from your application you have a diverse background.\n\n00:30.960 --> 00:33.200\n<v Speaker 1>Could we start with your time in the military?\n\n00:33.840 --> 00:34.560\n<v Speaker 2>Certainly.\n\n00:37.440 --> 00:40.000\n<v Speaker 2>I joined the military right after finishing my O-levels.\n\n00:40.320 --> 00:41.920\n<v Speaker 2>I served for about 5 years.\n\n00:43.200 --> 00:49.000\n<v Speaker 2>It was a challenging yet rewarding experience and I gained a lot of skills and discipline during my time there.\n\n00:49.800 --> 00:51.120\n<v Speaker 1>That sounds impressive.\n\n00:51.760 --> 00:53.680\n<v Speaker 1>What prompted you to leave the military?\n\n00:54.160 --> 00:55.360\n<v Speaker 2>After 5 years,\n\n00:55.760 --> 00:57.440\n<v Speaker 2>I felt it was time for a change.\n\n00:57.760 --> 01:02.520\n<v Speaker 2>I wanted to explore different career opportunities and decided to move into the private sector.\n\n01:03.400 --> 01:05.120\n<v Speaker 2>That's when I joined a scaffold company.\n\n01:05.360 --> 01:09.280\n<v Speaker 2>I wanted to do something active and didn't really want to be stuck in an office style job.\n\n01:10.240 --> 01:16.080\n<v Speaker 1>Interesting transition, but I can see why you wanted to be up and about rather than sat at a desk.\n\n01:16.960 --> 01:19.680\n<v Speaker 1>Can you tell me more about your role at the scaffolding company?\n\n01:20.320 --> 01:20.800\n<v Speaker 2>Sure.\n\n01:21.400 --> 01:23.280\n<v Speaker 2>I worked there for about 3 years.\n\n01:23.760 --> 01:32.800\n<v Speaker 2>My primary responsibilities included assembling and dismantling scaffolding structures, ensuring safety protocols were followed and managing a small team.\n\n01:32.960 --> 01:35.600\n<v Speaker 2>It was physically demanding work, but I enjoyed it.\n\n01:36.280 --> 01:38.320\n<v Speaker 1>Yeah, sounds like a lot of responsibility.\n\n01:39.160 --> 01:41.120\n<v Speaker 1>What made you leave the scaffold company?\n\n01:42.040 --> 01:46.320\n<v Speaker 2>I was looking for something less physically demanding and with more regular hours.\n\n01:46.760 --> 01:52.080\n<v Speaker 2>That's when I found a position as a checkout assistant in a well-known supermarket where I currently work.\n\n01:53.000 --> 01:56.160\n<v Speaker 1>And how has your experience been working as a checkout assistant?\n\n01:56.720 --> 02:01.040\n<v Speaker 2>It's been quite different from my previous jobs, but it's been a good experience.\n\n02:01.520 --> 02:06.480\n<v Speaker 2>I've developed strong customer service skills and enjoy interacting with people on a daily basis.\n\n02:06.960 --> 02:11.440\n<v Speaker 2>It doesn't physically challenge me, but it's nice to interact with people on a daily basis.\n\n02:11.760 --> 02:12.720\n<v Speaker 1>Yeah, that's great.\n\n02:12.960 --> 02:17.600\n<v Speaker 1>It gives me a good understanding of your background and the skills you bring to the table.\n\n02:18.960 --> 02:22.400\n<v Speaker 1>You mentioned that you joined the military after completing your O-Levels.\n\n02:22.960 --> 02:25.120\n<v Speaker 1>Is this your highest qualification to date?\n\n02:26.000 --> 02:26.880\n<v Speaker 2>Yes, it is.\n\n02:27.400 --> 02:33.360\n<v Speaker 2>By the time I finished my O-levels, I just wanted to start earning money, so I didn't go to college or anything like that.\n\n02:34.200 --> 02:35.520\n<v Speaker 1>Thank you for sharing that, Joe.\n\n02:35.600 --> 02:38.000\n<v Speaker 1>Now, let's talk a little bit about your home.\n\n02:38.600 --> 02:41.440\n<v Speaker 1>When I pulled up, I noticed the beautiful double drive.\n\n02:42.560 --> 02:44.160\n<v Speaker 2>Yes, I like my cars.\n\n02:44.760 --> 02:48.000\n<v Speaker 2>I used to have one for driving to work and one for the weekend.\n\n02:48.440 --> 02:49.600\n<v Speaker 2>But my work car,\n\n02:49.840 --> 02:54.120\n<v Speaker 2>Used to get so dirty from being a scaffolder, I've just got the one car now.\n\n02:54.160 --> 02:54.240\n<v Speaker 2>Oh.\n\n02:55.280 --> 02:56.680\n<v Speaker 1>How lovely to be able to do that.\n\n02:56.680 --> 02:57.680\n<v Speaker 1>What a luxury.\n\n02:58.000 --> 02:59.600\n<v Speaker 2>Yes, expensive though.\n\n03:04.160 --> 03:05.200\n<v Speaker 2>So this is my living room.\n\n03:05.600 --> 03:10.560\n<v Speaker 2>I spend the evenings in here to chill out and watch some TV or read.\n\n03:11.080 --> 03:13.200\n<v Speaker 2>My office space is just across the hallway.\n\n03:13.680 --> 03:16.800\n<v Speaker 2>I tend to play on the Xbox in there if I've got some downtime.\n\n03:17.200 --> 03:19.520\n<v Speaker 2>I keep my laptop on my monitor in there too.\n\n03:19.960 --> 03:25.240\n<v Speaker 2>I don't use it much, usually for looking for holidays or booking events and concerts, things like that.\n\n03:26.080 --> 03:29.840\n<v Speaker 1>It's a lovely separate space to your living area and quite a big space too.\n\n03:30.560 --> 03:31.280\n<v Speaker 2>Yes, it is.\n\n03:31.760 --> 03:35.360\n<v Speaker 2>It could be changed into a playroom if I was to foster a younger child.\n\n03:35.720 --> 03:36.880\n<v Speaker 1>That sounds ideal.\n\n03:37.680 --> 03:40.720\n<v Speaker 2>The kitchen area is where I spend the majority of my time.\n\n03:40.960 --> 03:44.720\n<v Speaker 2>I enjoy cooking and I have my family around most Sundays for lunch.\n\n03:45.200 --> 03:48.400\n<v Speaker 2>My sister brings her daughter, who is 6, and husband.\n\n03:48.600 --> 03:50.000\n<v Speaker 2>and my parents come over too.\n\n03:50.640 --> 03:52.480\n<v Speaker 1>Oh, so full house on a Sunday then?\n\n03:53.120 --> 03:58.800\n<v Speaker 2>Yes, it is something we've always done and it's our way of staying in touch, I suppose.\n\n03:59.360 --> 04:02.600\n<v Speaker 2>They all live within 10 minutes of here too, which is nice.\n\n04:02.600 --> 04:06.320\n<v Speaker 1>And what do they think about you potentially becoming a carer?\n\n04:07.440 --> 04:09.440\n<v Speaker 2>They are so excited about it.\n\n04:10.000 --> 04:15.360\n<v Speaker 2>I've never been married or had a long-term partner, just because I think work has always taken a priority.\n\n04:15.600 --> 04:18.960\n<v Speaker 2>But now I'm more settled with work, I'd really like to support the child.\n\n04:19.440 --> 04:20.440\n<v Speaker 1>And that's great to hear.\n\n04:20.440 --> 04:24.040\n<v Speaker 1>And it's lovely that they're looking forward to the possibility of that.\n\n04:25.520 --> 04:27.600\n<v Speaker 2>Upstairs, I've got 3 bedrooms.\n\n04:28.000 --> 04:30.320\n<v Speaker 2>I only use the one for myself.\n\n04:30.320 --> 04:34.400\n<v Speaker 2>The other two tend to just be for additional storage, but there's not much in them.\n\n04:35.280 --> 04:37.760\n<v Speaker 1>Are there any rooms suitable for children?\n\n04:39.120 --> 04:43.880\n<v Speaker 2>Yes, once I've taken out anything of mine, they are good size rooms for a child.\n\n04:44.320 --> 04:48.240\n<v Speaker 2>The one room is most appropriate as they're built-in wardrobes and an en suite.\n\n04:48.560 --> 04:51.160\n<v Speaker 2>They'd have their own space and own bathroom, which would be good.\n\n04:51.160 --> 04:54.960\n<v Speaker 1>And there's some lovely room views in these bedrooms too.\n\n04:56.000 --> 04:59.680\n<v Speaker 2>Yeah, the house backs onto the golf course, so it's very private and quiet.\n\n05:00.440 --> 05:02.280\n<v Speaker 1>And your outdoor space looks great too.\n\n05:03.040 --> 05:05.360\n<v Speaker 2>Yes, I like to keep the garden tidy.\n\n05:05.520 --> 05:07.840\n<v Speaker 2>That's part of the reason why I don't have any pets.\n\n05:08.240 --> 05:09.920\n<v Speaker 2>I had the patio area done last.\n\n05:10.160 --> 05:13.240\n<v Speaker 2>last year, but I kept a bit of grass just to keep a bit of colour.\n\n05:13.240 --> 05:13.280\n<v Speaker 2>I.\n\n05:13.960 --> 05:14.960\n<v Speaker 1>Can see you have a hot tub.\n\n05:15.920 --> 05:18.320\n<v Speaker 2>Yes, I need to put it away to be honest.\n\n05:18.440 --> 05:20.320\n<v Speaker 2>I only use it in the summer.\n\n05:20.640 --> 05:27.440\n<v Speaker 2>My friends from running club come around sometimes for a BBQ and I usually get the hot tub going too if people want to use it.\n\n05:28.320 --> 05:30.400\n<v Speaker 1>Ah, so it's a temporary one, I see.\n\n05:31.040 --> 05:34.560\n<v Speaker 1>Just wanted to flag and ensure that you were aware of the safety requirements.\n\n05:35.200 --> 05:38.640\n<v Speaker 1>There are some guidelines around age restrictions of using hot tubs too.\n\n05:39.680 --> 05:40.960\n<v Speaker 2>Yes, that's no problem.\n\n05:41.120 --> 05:44.720\n<v Speaker 2>We don't allow my niece in there as much as she is desperate to go in.\n\n05:45.200 --> 05:45.840\n<v Speaker 1>That's okay.\n\n05:46.080 --> 05:47.600\n<v Speaker 1>As long as you're aware, that's great.\n\n05:48.400 --> 05:52.480\n<v Speaker 2>My niece has a learning difficulty too, so she has a younger mental age.\n\n05:52.800 --> 05:55.280\n<v Speaker 2>So we've got to be mindful of the type of activities we do.\n\n05:56.240 --> 05:58.360\n<v Speaker 1>So you mentioned a running club.\n\n05:58.920 --> 06:00.120\n<v Speaker 1>Tell me a little bit about that.\n\n06:01.120 --> 06:03.520\n<v Speaker 2>Yeah, I run for Torvine Harriers.\n\n06:03.960 --> 06:05.120\n<v Speaker 2>I've been there four years now.\n\n06:05.200 --> 06:05.840\n<v Speaker 2>I love it.\n\n06:05.920 --> 06:08.560\n<v Speaker 2>It just keeps me motivated and stay healthy.\n\n06:09.280 --> 06:11.040\n<v Speaker 1>And what are the commitments for the club?\n\n06:11.440 --> 06:13.120\n<v Speaker 1>Do you meet regularly to compete?\n\n06:14.080 --> 06:15.480\n<v Speaker 2>It's not a competitive club.\n\n06:15.920 --> 06:17.520\n<v Speaker 2>It's more of a social running club.\n\n06:18.000 --> 06:21.040\n<v Speaker 2>We meet once a week on a Wednesday to do a 5k run.\n\n06:21.440 --> 06:25.400\n<v Speaker 2>It's great in the summer because we sometimes finish in a local pub and have some dinner.\n\n06:25.840 --> 06:27.800\n<v Speaker 2>It's really got that social club feeling.\n\n06:27.800 --> 06:27.840\n<v Speaker 2>Oh.\n\n06:28.480 --> 06:29.360\n<v Speaker 1>That is nice.\n\n06:29.840 --> 06:32.040\n<v Speaker 1>So you don't really get that pressured feeling.\n\n06:32.800 --> 06:33.680\n<v Speaker 2>Not at all.\n\n06:33.840 --> 06:35.840\n<v Speaker 2>If anything, it spears me on to do more.\n\n06:36.320 --> 06:40.080\n<v Speaker 2>I try and get in another three runs throughout the week on my lunch break.\n\n06:40.400 --> 06:47.040\n<v Speaker 2>Obviously, if I had the pleasure of fostering, I'd take this into consideration and I'd work around their needs.\n\n06:47.520 --> 06:49.400\n<v Speaker 2>I'd do it when they're in school at ETC.\n\n06:49.400 --> 06:53.480\n<v Speaker 1>How do you like to spend your weekends?\n\n06:54.640 --> 06:55.680\n<v Speaker 2>I like to keep active.\n\n06:55.840 --> 06:59.680\n<v Speaker 2>So I tend to get outdoors and go on some natural nature walks.\n\n07:00.000 --> 07:04.560\n<v Speaker 2>I tend to stay fairly local, but when the weather is nice, me and a few people from the running club,\n\n07:04.960 --> 07:09.600\n<v Speaker 2>like to go to Penyfan and up the Brecon Beacons area, but you've got to have the weather.\n\n07:10.160 --> 07:12.080\n<v Speaker 1>Yeah, that sounds great and peaceful.\n\n07:12.720 --> 07:14.560\n<v Speaker 1>What would you do if you had a child with you?\n\n07:15.520 --> 07:17.440\n<v Speaker 2>I'd love for them to come with me.\n\n07:17.760 --> 07:19.840\n<v Speaker 2>I think being outdoors is so beneficial.\n\n07:20.560 --> 07:21.280\n<v Speaker 1>Absolutely.\n\n07:21.920 --> 07:28.720\n<v Speaker 1>So just to make you aware, in regards to the process, you will need to be having a DPS check throughout the assessment process.\n\n07:29.440 --> 07:33.760\n<v Speaker 1>We will need three names of different people so we can obtain references to.\n\n07:34.560 --> 07:38.240\n<v Speaker 1>As part of the assessment, you will also be required to undergo a medical.\n\n07:39.200 --> 07:40.640\n<v Speaker 2>Sure, no problem.\n\n07:40.800 --> 07:42.720\n<v Speaker 2>I haven't got any health issues or anything.\n\n07:43.280 --> 07:44.000\n<v Speaker 1>Okay, great.\n\n07:44.720 --> 07:50.000\n<v Speaker 1>There are also some expectations to attend 15 hours of training a month once you have been approved.\n\n07:50.800 --> 07:55.320\n<v Speaker 1>One piece of training that you must attend prior to being approved is skills to foster.\n\n07:56.320 --> 08:01.880\n<v Speaker 1>Once you have attended the training, you will need to attend the approval panel and providing you are approved,\n\n08:02.320 --> 08:06.160\n<v Speaker 1>you will need to attend carer reviews that will take place annually.\n\n08:07.200 --> 08:10.400\n<v Speaker 2>I'm more than happy to attend the training panel and reviews.\n\n08:10.800 --> 08:13.360\n<v Speaker 2>Will I have regular support from the local authority at all?\n\n08:13.920 --> 08:17.120\n<v Speaker 1>Yes, you'll be assigned a supervising social worker.\n\n08:17.760 --> 08:21.040\n<v Speaker 1>They will provide ongoing support and also monthly supervisions.\n\n08:21.880 --> 08:22.480\n<v Speaker 2>That's good.\n\n08:22.600 --> 08:23.760\n<v Speaker 2>What about holidays?\n\n08:23.760 --> 08:25.040\n<v Speaker 2>Can I take them on holiday?\n\n08:25.360 --> 08:29.120\n<v Speaker 1>You can, you just need to complete a form with your supervising social worker.\n\n08:29.680 --> 08:32.960\n<v Speaker 1>They can revise on the logistics based on the holiday.\n\n08:33.520 --> 08:37.440\n<v Speaker 1>There are different rules dependent on whether the holiday is in this country or abroad.\n\n08:38.640 --> 08:41.320\n<v Speaker 1>There are also payments that you'll be receiving every fortnight.\n\n08:42.160 --> 08:45.200\n<v Speaker 1>The details will be confirmed with you during the approval stage.\n\n08:45.760 --> 08:50.800\n<v Speaker 1>The payments are for the child and you will have a full breakdown of where the funds should be spent.\n\n08:52.240 --> 08:55.200\n<v Speaker 2>This sounds good and I'm glad there's support available.\n\n08:55.840 --> 08:58.720\n<v Speaker 1>So overall, how are you feeling about it?\n\n09:00.120 --> 09:02.760\n<v Speaker 2>I'm really looking forward to hopefully being able to foster.\n\n09:03.160 --> 09:06.240\n<v Speaker 2>I feel like I could really give a good like to someone.\n\n09:08.720 --> 09:13.760\n<v Speaker 2>I'd love to take them on holidays, explore the outdoors and provide safety and stability.\n\n09:14.240 --> 09:20.400\n<v Speaker 2>I often see families out walking when I do trails and I always wish that I could share that experience too.\n\n09:21.280 --> 09:25.120\n<v Speaker 2>I'd love to take a child out to the local activity centre\n\n09:25.360 --> 09:27.680\n<v Speaker 2>paddle boarding, canoeing, rock climbing.\n\n09:28.000 --> 09:30.640\n<v Speaker 2>I just think that's what it's all about, enjoying life.\n\n09:31.040 --> 09:36.120\n<v Speaker 2>I try and tag along with my sister when she takes her daughter to these places because I absolutely love it.\n\n09:36.120 --> 09:39.160\n<v Speaker 1>It sounds like you have a lot to offer, Jo.\n\n09:40.320 --> 09:46.960\n<v Speaker 2>Yeah, and as my niece has some learning difficulties, I feel that I've already got some good experience with this.\n\n09:47.120 --> 09:49.360\n<v Speaker 2>It's taught me to be adaptable and patient.\n\n09:49.680 --> 09:54.320\n<v Speaker 2>Since my sister has had her child, I've really wanted to start this journey myself.\n\n09:55.160 --> 09:56.280\n<v Speaker 1>And that's wonderful to hear.\n\n09:56.280 --> 10:00.280\n<v Speaker 1>I'll pop back to the office and get things rolling my end.\n\n10:00.720 --> 10:05.720\n<v Speaker 1>Can I just ask that you send through the names of the referees, please, and I'll request those ASAP.\n\n10:08.480 --> 10:12.640\n<v Speaker 1>There is a panel in two weeks' time, so hopefully we can get everybody together ready for that one.```",
+        "fields": {
+          "Accommodation": {
+            "type": "string",
+            "valueString": "The applicant's house has a beautiful double drive and backs onto a golf course, making it private and quiet. Inside, there is a living room for relaxation, an office space used for gaming and leisure activities, and a kitchen where the applicant enjoys cooking and hosting family gatherings. Upstairs, there are three bedrooms, with one used by the applicant and the other two available for fostering. One room has built-in wardrobes and an en suite bathroom, suitable for a child. The garden is tidy, with a patio area and some grass for color, and includes a temporary hot tub used in the summer."
+          },
+          "AnnualCarerReviews": {
+            "type": "string",
+            "valueString": "The applicant was informed about the requirement to attend annual carer reviews once approved and expressed willingness to attend."
+          },
+          "ApplicantsTraits": {
+            "type": "string",
+            "valueString": "The applicant feels they can provide safety, stability, and a good life to a foster child, including taking them on holidays and outdoor activities. They have experience with children with learning difficulties, which has taught them adaptability and patience."
+          },
+          "ApplicantsTransferableSkills": {
+            "type": "string",
+            "valueString": "The applicant has military experience, which provided skills and discipline, and has worked in physically demanding roles, managing teams and ensuring safety protocols. They have developed strong customer service skills in their current role as a checkout assistant."
+          },
+          "ApplicantsUnderstandingOfDisability": {
+            "type": "string",
+            "valueString": "The applicant has experience with their niece who has learning difficulties, which has taught them to be adaptable and patient."
+          },
+          "ApplicantsViewsOnProcess": {
+            "type": "string",
+            "valueString": "The applicant is looking forward to fostering and feels positive about the process, expressing excitement and readiness to provide a good life to a foster child."
+          },
+          "ApprovalPanel": {
+            "type": "string",
+            "valueString": "The applicant was informed about the approval panel and expressed readiness to attend."
+          },
+          "AssessmentProcess": {
+            "type": "string",
+            "valueString": "The assessment process was explained, including the need for a DBS check, references, and a medical examination. The applicant agreed and mentioned having no health issues."
+          },
+          "DBS": {
+            "type": "string",
+            "valueString": "The applicant was informed about the need for a DBS check during the assessment process."
+          },
+          "EmploymentHistory": {
+            "type": "string",
+            "valueString": "The applicant has a diverse employment history, including 5 years in the military, 3 years at a scaffolding company, and currently works as a checkout assistant at a supermarket."
+          },
+          "ExPartnerContacts": {
+            "type": "string"
+          },
+          "ImpactOnApplicantsFamily": {
+            "type": "string",
+            "valueString": "The applicant's family is excited about the possibility of them becoming a carer. The applicant has never been married or had a long-term partner, prioritizing work previously, but now feels settled and ready to support a child."
+          },
+          "MaritalStatus": {
+            "type": "string",
+            "valueString": "Single"
+          },
+          "Medical": {
+            "type": "string",
+            "valueString": "The applicant was informed about the need to undergo a medical as part of the assessment and agreed, stating they have no health issues."
+          },
+          "OngoingTrainingSkillsDevelopment": {
+            "type": "string",
+            "valueString": "The applicant was informed about the requirement to complete 15 hours of training a month once approved and expressed willingness to attend."
+          },
+          "OtherFactors": {
+            "type": "string",
+            "valueString": "The applicant enjoys running with a club, cooking, hosting family gatherings, and outdoor activities. They have no pets to keep the garden tidy and have a temporary hot tub used in the summer."
+          },
+          "PaymentExpenses": {
+            "type": "string",
+            "valueString": "The applicant was informed about fortnightly payments for fostering, with details to be confirmed during the approval stage."
+          },
+          "PreApprovalTraining": {
+            "type": "string",
+            "valueString": "The applicant was informed about the requirement to attend 'Skills to Foster' training prior to approval."
+          },
+          "Qualifications": {
+            "type": "string",
+            "valueString": "The applicant's highest qualification is O-levels."
+          },
+          "ReasonsForApplying": {
+            "type": "string",
+            "valueString": "The applicant wants to provide safety, stability, and a good life to a foster child, including taking them on holidays and outdoor activities. They have experience with children with learning difficulties and wish to start this journey."
+          },
+          "References": {
+            "type": "string",
+            "valueString": "The applicant was asked to provide three names for references."
+          },
+          "SocialWorkerName": {
+            "type": "string",
+            "valueString": "Jenny"
+          },
+          "SupportNetworks": {
+            "type": "string",
+            "valueString": "The applicant has a supportive family network, including parents, a sister, and her family, who live nearby and are excited about the fostering possibility."
+          },
+          "SupportSupervision": {
+            "type": "string",
+            "valueString": "The applicant was informed they would be assigned a supervising social worker for ongoing support and monthly supervisions."
+          },
+          "ApplicantsNames": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "Joe"
+              }
+            ]
+          },
+          "Children": {
+            "type": "array",
+            "valueArray": [
+              {
+                "type": "string",
+                "valueString": "None"
+              }
+            ]
+          }
+        },
+        "kind": "audioVisual",
+        "startTimeMs": 0,
+        "endTimeMs": 616960
+      }
+    ]
+  }
+}
