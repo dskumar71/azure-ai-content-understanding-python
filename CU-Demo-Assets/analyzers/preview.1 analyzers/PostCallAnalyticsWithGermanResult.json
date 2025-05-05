@@ -1,14 +1,14 @@
 {
     "description": "Customized Post Call Analytics Analyzer incl. Issue- and Resolution Summaries and extended sentiment descriptions",
-	"baseAnalyzerId": "prebuilt-callCenter",
+	"scenario": "callCenter",
     "config": {
-        "locales": ["en-US", "de-DE", "pt-BR"],
-        "returnDetails": true
+        "locales": ["en-US", "de-DE"],
+        "returnDetails": false
     },
     "tags": {
         "projectId": "",
         "templateId": "postCallAnalytics-2024-12-01"
-      },
+    },
     "fieldSchema": {
         "fields": {
             "Summary": {
@@ -76,15 +76,10 @@
                     "enum": ["Agriculture", "Business", "Finance", "Health", "Insurance", "Mining", "Pharmaceutical", "Retail", "Technology", "Transportation"]
                 }
             },
-            "IssueSummary": {
+            "Zusammenfassung": {
                 "type": "string",
                 "method": "generate",
-                "description": "A short list of the caller\"s issue(s)"
-            },
-            "ResolutionSummary": {
-                "type": "string",
-                "method": "generate",
-                "description": "A short list of actions how the issue was resolved"
+                "description": "Eine Zusammenfassung des Gespraechs"
             }
         }
     }

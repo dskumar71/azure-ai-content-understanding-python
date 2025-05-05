@@ -1,0 +1,141 @@
+{
+  "description": "Fostering Record Initial Visit",
+  "scenario": "conversation",
+  "tags": {
+      "projectId": "9a18899c-cdbc-4b9d-9fcc-24687af739e3",
+      "templateId": "conversationAnalysis-2024-12-01"
+  },
+  "createdAt": "2025-04-15T19:01:23Z",
+  "lastModifiedAt": "2025-04-15T19:10:26Z",
+  "config": {
+      "locales": [
+          "en-GB"
+      ],
+      "returnDetails": false,
+      "disableContentFiltering": false,
+      "_experimental": {
+          "_enableExtraFields": "false"
+      }
+  },
+  "fieldSchema": {
+      "fields": {
+          "SocialWorkerName": {
+              "type": "string",
+              "method": "generate",
+              "description": "The name of the Social Worker conducting the visit."
+          },
+          "FosterChildren": {
+              "type": "array",
+              "method": "generate",
+              "description": "The name of each of the Foster Children discussed at the visit.",
+              "items": {
+                  "type": "string"
+              }
+          },
+          "FosterCarerWellbeing": {
+              "type": "string",
+              "method": "generate",
+              "description": "How are they doing? How is the family? A summary of the discussion regarding self-care strategies and support needs."
+          },
+          "Reflection": {
+              "type": "string",
+              "method": "generate",
+              "description": "What is working well? What are their areas of personal development, reflection, and any support needed."
+          },
+          "ReviewActionsOfLastSupervision": {
+              "type": "string",
+              "method": "generate",
+              "description": "Review of action identified during last supervision. Have they been completed or are further actions required?"
+          },
+          "LearningDevelopment": {
+              "type": "string",
+              "method": "generate",
+              "description": "Are the carers aware of the national minimum requirements of 15 hours per year? Has each carer's personal learning record and development plan been discussed, updated, evidenced, and signed off? Are there any additional training needs?"
+          },
+          "AdditionalSupportTraining": {
+              "type": "string",
+              "method": "generate",
+              "description": "Has any additional support or training been identified for the carers?"
+          },
+          "FosterCarerLogs": {
+              "type": "string",
+              "method": "generate",
+              "description": "In line with the Recording Policy for foster carers, all foster carers should complete daily logs to keep an accurate record of the child or young person's behaviors, any incidents, accidents, and for life journey work. These may be requested by Court and are required to safeguard themselves, particularly where there are allegations/injuries to children. Have these been completed?"
+          },
+          "Finances": {
+              "type": "string",
+              "method": "generate",
+              "description": "What was discussed regarding carers' finances, benefits, children's pocket money, and savings. Was any additional support needed to help the carers with managing their money identified and discussed?"
+          },
+          "Actions": {
+              "type": "string",
+              "method": "generate",
+              "description": "List all actions discussed, who they are assigned to, when they are expected to be completed by."
+          },
+          "ChildHealth": {
+              "type": "array",
+              "method": "generate",
+              "description": "Detail all information about each child's health. Prefix each item with the child's name or number from FosterChildren.",
+              "items": {
+                  "type": "string"
+              }
+          },
+          "ChildEducationTrainingEmployment": {
+              "type": "array",
+              "method": "generate",
+              "description": "Detail all information related to Child 1's education, training, and employment. Prefix each item with the child's name or number from FosterChildren.",
+              "items": {
+                  "type": "string"
+              }
+          },
+          "ChildEmotionalBehavioralDevelopment": {
+              "type": "array",
+              "method": "generate",
+              "description": "Provide details on each child's emotional and behavioral development. Prefix each item with the child's name or number from FosterChildren.",
+              "items": {
+                  "type": "string"
+              }
+          },
+          "ChildIdentity": {
+              "type": "array",
+              "method": "generate",
+              "description": "Provide details on each child's formation of an identity. Prefix each item with the child's name or number from FosterChildren.",
+              "items": {
+                  "type": "string"
+              }
+          },
+          "ChildContact": {
+              "type": "array",
+              "method": "generate",
+              "description": "Provide details of how each child handles contact with others, including carers, family, friends, etc. Prefix each item with the child's name or number from FosterChildren.",
+              "items": {
+                  "type": "string"
+              }
+          },
+          "ChildSocialCulturalNeedsWellbeing": {
+              "type": "array",
+              "method": "generate",
+              "description": "Provide details of each child's social/cultural needs and wellbeing, including social development. Prefix each item with the child's name or number from FosterChildren.",
+              "items": {
+                  "type": "string"
+              }
+          },
+          "ChildPromotingLeisureActivities": {
+              "type": "array",
+              "method": "generate",
+              "description": "Provide details of promotion of leisure activities for each child. Prefix each item with the child's name or number from FosterChildren.",
+              "items": {
+                  "type": "string"
+              }
+          },
+          "ChildActions": {
+              "type": "array",
+              "method": "generate",
+              "description": "List any actions required that are specific to each child. Prefix each item with the child's name or number from FosterChildren.",
+              "items": {
+                  "type": "string"
+              }
+          }
+      }
+  }
+}

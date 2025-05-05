@@ -1,0 +1,67 @@
+{
+    "description": "Extracts detailed information from an insurance call relating to a car accident",
+    "scenario": "callCenter",
+    "config": {
+        "returnDetails": true,
+        "locales": ["en-US"]
+    },
+    "tags": {
+        "projectId": "16f1d030-0fac-4ce0-a92c-88bcd6eee3d8",
+        "templateId": "postCallAnalytics-2024-12-01"
+    },
+    "fieldSchema": {
+        "fields": {
+            "DescriptionOfIncident": {
+                "type": "string",
+                "method": "generate",
+                "description": "Description of the incident"
+            },
+            "DateOfIncident": {
+                "type": "string",
+                "method": "generate",
+                "description": "Date that the incident occurred"
+            },
+            "VehicleMake": {
+                "type": "string",
+                "method": "generate",
+                "description": "Make of the vehicle in the incident"
+            },
+            "VehicleYear": {
+                "type": "string",
+                "method": "generate",
+                "description": "Year of the vehicle in the incident"
+            },
+            "VehicleModel": {
+                "type": "string",
+                "method": "generate",
+                "description": "Model of the vehicle in the incident"
+            },
+            "VehicleColor": {
+                "type": "string",
+                "method": "generate",
+                "description": "Color of the vehicle in the incident"
+            },
+            "DriverName": {
+                "type": "string",
+                "method": "generate",
+                "description": "Name of the driver"
+            },
+            "AnotherVehicleInvolved": {
+                "type": "string",
+                "method": "classify",
+                "description": "Whether another vehicle was involved",
+                "enum": ["true", "false"]
+            },
+            "OtherVehicleDetails": {
+                "type": "string",
+                "method": "generate",
+                "description": "Details of the other vehicle (if available)"
+            },
+            "FaultInIncident": {
+                "type": "string",
+                "method": "generate",
+                "description": "Who was at fault in the incident (driver or other party)"
+            }
+        }
+    }
+}

@@ -1,0 +1,174 @@
+{
+    "description": "Fostering Record Initial Visit",
+    "scenario": "conversation",
+    "tags": {
+      "projectId": "9a18899c-cdbc-4b9d-9fcc-24687af739e3",
+      "templateId": "conversationAnalysis-2024-12-01"
+    },
+    "createdAt": "2025-04-15T19:01:23Z",
+    "lastModifiedAt": "2025-04-15T19:10:26Z",
+    "config": {
+      "locales": [
+        "en-GB"
+      ],
+      "returnDetails": false,
+      "disableContentFiltering": false,
+      "_experimental": {
+        "_enableExtraFields": "false"
+      }
+    },
+    "fieldSchema": {
+      "fields": {
+        "SocialWorkerName": {
+          "type": "string",
+          "method": "generate",
+          "description": "The name of the Social Worker conducting the visit."
+        },
+        "ApplicantsNames": {
+            "type": "array",
+            "method": "generate",
+            "description": "List the names of the applicants at the visit.",
+            "items": {
+                "type": "string"
+            }
+          },        
+        "MaritalStatus": {
+          "type": "string",
+          "method": "classify",
+          "description": "Marital Status of the applicants.",
+          "enum": [
+            "Married",
+            "Single",
+            "Divorced",
+            "Partnered",
+            "Unknown"
+          ],
+          "enumDescriptions": {
+            "Married": "",
+            "Divorced": "",
+            "Unknown": "",
+            "Single": "",
+            "Partnered": ""
+          }
+        },
+        "Children": {
+            "type": "array",
+            "method": "generate",
+            "description": "The name and age of existing children. Do not list other people that are not children of the applicant. List 'None' if no children.",
+            "items": {
+              "type": "string"
+            }
+          },
+        "EmploymentHistory": {
+          "type": "string",
+          "method": "generate",
+          "description": "What is the current employment history of the applicants?"
+        },
+        "Qualifications": {
+          "type": "string",
+          "method": "generate",
+          "description": "What is the current qualification of the applicants?"
+        },
+        "Accommodation": {
+          "type": "string",
+          "method": "generate",
+          "description": "What is the current state of the accommodation of the applicants? Include a description of the exterior and interior of the house or apartment. Include information on security like doors, locks, and alarms. Call out any potential hazards. Include information on the number of bedrooms and bathrooms. Include information on the garden and any other outside space."
+        },
+        "OtherFactors": {
+          "type": "string",
+          "method": "generate",
+          "description": "What other details are discussed regarding lifestyle, pets, etc.?"
+        },
+        "SupportNetworks": {
+          "type": "string",
+          "method": "generate",
+          "description": "What family and support networks do the applicants have? If there is support also mention if they have children."
+        },
+        "AssessmentProcess": {
+          "type": "string",
+          "method": "generate",
+          "description": "Was the assessment process explained to the applicant? Detail any questions raised by the applicant and the answers provided by the Social Worker."
+        },
+        "DBS": {
+          "type": "string",
+          "method": "generate",
+          "description": "Does the applicant have a valid DBS check? If not, was the process explained to the applicant?"
+        },
+        "References": {
+          "type": "string",
+          "method": "generate",
+          "description": "List all references from CIW, Employer, local authority, and school."
+        },
+        "ExPartnerContacts": {
+          "type": "string",
+          "method": "generate",
+          "description": "Detail any significant ex-partners that need to be contacted."
+        },
+        "Medical": {
+          "type": "string",
+          "method": "generate",
+          "description": "Was the applicant informed that they would need to undergo a medical as part of the assessment? Did the applicant agree and provide his current health status?"
+        },
+        "PreApprovalTraining": {
+          "type": "string",
+          "method": "generate",
+          "description": "Has the applicant undergone or is planning to carry out any training courses in relation to the adoption processes?"
+        },
+        "ApprovalPanel": {
+          "type": "string",
+          "method": "generate",
+          "description": "Was the applicant made aware of the approval panel? Were any questions raised?"
+        },
+        "AnnualCarerReviews": {
+          "type": "string",
+          "method": "generate",
+          "description": "Was the applicant made aware of the requirement for an annual carer review? Were any questions raised?"
+        },
+        "OngoingTrainingSkillsDevelopment": {
+          "type": "string",
+          "method": "generate",
+          "description": "Was the applicant made aware of the need to complete the national requirement of 15 hours a year in training?"
+        },
+        "SupportSupervision": {
+          "type": "string",
+          "method": "generate",
+          "description": "Was the applicant made aware they would be assigned a supervising social worker and have monthly supervision sessions? Were any questions raised?"
+        },
+        "PaymentExpenses": {
+          "type": "string",
+          "method": "generate",
+          "description": "Was the applicant made aware of the payment and expenses made for fostering? Were any questions raised?"
+        },
+        "ApplicantsViewsOnProcess": {
+          "type": "string",
+          "method": "generate",
+          "description": "What were the applicant's expressed views on the process and were any questions asked? Were any questions raised?"
+        },
+        "ReasonsForApplying": {
+          "type": "string",
+          "method": "generate",
+          "description": "What are the applicant's reasons for applying for fostering? Were any questions raised?"
+        },
+        "ApplicantsTraits": {
+          "type": "string",
+          "method": "generate",
+          "description": "What The Applicants Feel That They Can Bring To The Scheme: What did the applicant feel that they could bring to the fostering scheme? Were any questions raised?"
+        },
+        "ApplicantsUnderstandingOfDisability": {
+          "type": "string",
+          "method": "generate",
+          "description": "Applicants Understanding Of Disability: Did the applicant have an understanding of disability? Were"
+        },
+        "ApplicantsTransferableSkills": {
+          "type": "string",
+          "method": "generate",
+          "description": "Applicants Transferable Skills: Does the applicant have any transferable skills they could apply to fostering? Were"
+        },
+        "ImpactOnApplicantsFamily": {
+          "type": "string",
+          "method": "generate",
+          "description": "Possible Impact Of Becoming A Foster Carer On Own Family: Has the applicant given consideration to the impact fostering may have on their own family? Were"
+        }
+      }
+    }
+  }

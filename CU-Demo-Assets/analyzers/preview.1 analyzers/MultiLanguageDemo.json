@@ -1,0 +1,63 @@
+{
+  "analyzerId": "MultiLanguageDemo",
+  "description": "Presents how to create outputs in different languages.",
+  "tags": {
+    "projectId": "",
+    "templateId": "postCallAnalytics-2024-12-01"
+  },
+  "config": {
+    "locales": [
+      "en-US",
+      "de-DE",
+      "pt-BR"
+    ],
+    "returnDetails": true
+  },
+  "fieldSchema": {
+    "fields": {
+      "Summary": {
+        "type": "string",
+        "method": "generate",
+        "description": "A one-paragraph summary"
+      },
+      "Topics": {
+        "type": "array",
+        "method": "generate",
+        "description": "Top 5 topics mentioned",
+        "items": {
+          "type": "string",
+          "method": "generate"
+        }
+      },
+      "TopicsInputLanguage": {
+        "type": "array",
+        "method": "generate",
+        "description": "Top 5 topics mentioned. Create in the language of the conversation.",
+        "items": {
+          "type": "string",
+          "method": "generate"
+        }
+      },
+      "Zusammenfassung": {
+        "type": "string",
+        "method": "generate",
+        "description": "Eine Zusammenfassung des Gespr\u00e4chs"
+      },
+      "SummaryInputLanguage": {
+        "type": "string",
+        "method": "generate",
+        "description": "A one-paragraph summary. Create in the language of the conversation."
+      },
+      "Themen": {
+        "type": "array",
+        "method": "generate",
+        "description": "Top 5 erw\u00e4hnte Gespr\u00e4chsthemen",
+        "items": {
+          "type": "string",
+          "method": "generate"
+        }
+      }
+    }
+  },
+  "scenario": "callCenter"
+}

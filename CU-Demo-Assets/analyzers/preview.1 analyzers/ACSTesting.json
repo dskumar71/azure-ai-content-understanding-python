@@ -1,0 +1,47 @@
+{
+  "analyzerId": "MultiLanguageDemo",
+  "description": "Presents how to create outputs in different languages.",
+  "tags": {
+    "projectId": "16f1d030-0fac-4ce0-a92c-88bcd6eee3d8",
+    "templateId": "postCallAnalytics-2024-12-01"
+  },
+  "config": {
+    "locales": [
+      "en-US",
+      "de-DE",
+      "pt-BR"
+    ],
+    "returnDetails": true,
+    "_experimental": {
+        "_enableExtraFields": "false"
+    }
+  },
+  "fieldSchema": {
+    "fields": {
+      "Summary": {
+        "type": "string",
+        "method": "generate",
+        "description": "A detailed summary of the conversation. Be highly descriptive. List all the topics and then describe them one by one.",
+        "examples": ["Jannik introduced the new software, highlighting its AI capabilities and various features.They emphasized that the software can perform a wide range of tasks, including managing calendars and making calls.\nSoftware Introduction: Jannik introduced the new software, describing it as *fabulous* and emphasizing its AI capabilities. He mentioned that the software can perform a wide range of tasks, including managing calendars, making calls, and even performing actions that users may not have thought of.\nAI Capabilities: Jannik highlighted the AI capabilities of the software, stating that it can do everything users don't want to do, including tasks they want to do and never thought they would have done. He emphasized that the AI is fully capable and can handle a variety of tasks.\nTask Management: Jannik explained that the software can manage calendars, make meetings with colleagues, and call contacts, such as wishing a girlfriend a nice day. He emphasized that the software is top of its class and better than other software solutions on the market.\nAI Feature Details:\nThorsten Pfeiffer inquired about the AI feature of the new software. Jannik explained that the AI can answer any question with 100% accuracy and perform various actions.\nAI Inquiry: Thorsten Pfeiffer asked about the AI feature, specifically what questions can be asked and what answers can be expected. He also inquired about the accuracy of the software.\nAI Accuracy: Jannik responded that the AI can answer any question with 100% accuracy and is always certain of its answers. He guaranteed that the answers will apply in every situation and mentioned a 30-day money-back guarantee.\nAI Actions: Jannik added that the AI can perform actions, such as making meetings, managing calendars, and making calls. He emphasized that the software is perfect and better than other solutions on the market.\nPurchase and Delivery:\nThorsten Pfeiffer expressed interest in purchasing the software. Jannik provided details about the premium shipping option and the setup service included with the purchase.\nPurchase Interest: Thorsten Pfeiffer expressed interest in buying the software and asked about the delivery timeline if he purchased it immediately.\nPremium Shipping: Jannik explained that if Thorsten buys the software now, he will receive a free premium shipping option, ensuring the product arrives within 25 hours. The product will be hand-delivered to his home.\nSetup Service: Jannik mentioned that an engineer would be sent to set up the software on all devices Thorsten wants it to run on. This service is included in the purchase price.\nPayment Information:\nThorsten Pfeiffer provided their credit card details and home address for the purchase. Jannik confirmed the order and collected additional information for the survey.\nCredit Card Details: Thorsten provided his credit card number, expiration date, and CVC code. Jannik confirmed the details and noted that it was a MasterCard.\nHome Address: Thorsten provided his home address for the delivery. Jannik confirmed the address and proceeded to finalize the order.\nOrder Confirmation: Jannik confirmed the order and asked Thorsten if he would like to participate in a survey for a chance to win a discount.\nSurvey Participation:\nJannik invited Thorsten Pfeiffer to participate in a survey for a chance to win a discount. Thorsten agreed and provided their email address, birthdate, and phone number.\nSurvey Invitation: Jannik invited Thorsten to participate in a survey, offering a chance to win a 10% discount on his first rate. Thorsten agreed to participate.\nContact Information: Thorsten provided his email address, birthdate, and phone number for the survey. Jannik noted down the information and confirmed its accuracy.\nAdditional Details: Jannik asked for additional details, such as Thorsten's place of work and job title. Thorsten provided the information, and Jannik thanked him for his participation.\nBonus Program:\nJannik informed Thorsten Pfeiffer about a bonus program that offers an extended warranty if they register on the company's website. Thorsten expressed interest in the program.\nConclusion:\nJannik confirmed the order and thanked Thorsten Pfeiffer for their time. They also added Thorsten to the mailing list for updates and wished them a good day.\nOrder Confirmation: Jannik confirmed Thorsten's order and thanked him for his time. He added Thorsten to the mailing list for updates on the software and the status of his purchase.\nFinal Remarks: Jannik wished Thorsten a fabulous day and hoped he would enjoy the product. Thorsten had no further topics to discuss, and the call concluded."]
+      },
+      "Group": {
+        "type": "object",
+        "method": "generate",
+        "description": "",
+        "properties": {
+          "EMail": {
+            "type": "string",
+            "method": "generate",
+            "description": "Extract e-mails from the conversation and format them to a proper e-mail address. Example: 'john.doe@gmail.com'"
+          },
+          "Name": {
+            "type": "string",
+            "method": "generate",
+            "description": "The Person's full name. Example: 'John Doe'"
+          }
+        }
+      }
+    }
+  },
+  "scenario": "callCenter"
+}

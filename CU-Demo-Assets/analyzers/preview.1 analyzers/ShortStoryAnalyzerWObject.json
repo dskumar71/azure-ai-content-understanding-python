@@ -1,0 +1,86 @@
+{
+    "scenario": "text",
+    "description": "Conversation analytics chat and pre-trancsribed audio transcripts",
+    "config": {
+        "returnDetails": true
+    },
+    "tags": {
+        "projectId": "16f1d030-0fac-4ce0-a92c-88bcd6eee3d8",
+        "templateId": "text-2024-12-01"
+    },
+    "fieldSchema": {
+        "fields": {
+            "Summary": {
+                "type": "string",
+                "method": "generate",
+                "description": "A short summary of the text."
+            },
+            "StoryMetadata": {
+              "type": "object",
+              "method": "generate",
+              "description": "",
+              "properties": {
+                "Title": {
+                  "type": "string",
+                  "method": "generate",
+                  "description": "Extract the title of the story. Example: 'The Great Adventure'. Do not alter the original text."
+                },
+                "Length": {
+                  "type": "string",
+                  "method": "generate",
+                  "description": "The length of the story in words. Example: '1500 words'. Do not alter the original text."
+                }
+              }
+            },
+            "People": {
+                "type": "array",
+                "method": "generate",
+                "description": "A list of people mentioned in the story",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "Name": {
+                            "type": "string",
+                            "description": "Person's name."
+                        },
+                        "Role": {
+                            "type": "string",
+                            "description": "A short description of the person's character."
+                        }
+                    }
+                }
+            },
+            "Chapters": {
+                "type": "array",
+                "method": "generate",
+                "description": "Chapters of the story",
+                "items": {
+                    "type": "object",
+                    "method": "extract",
+                    "properties": {
+                        "ChapterName": {
+                            "type": "string",
+                            "method": "generate",
+                            "description": "A unique name for the chapter."
+                        },
+                        "ChapterSummary": {
+                            "type": "string",
+                            "method": "generate",
+                            "description": "A summary of the chapter."
+                        },
+                        "ChapterIndex": {
+                            "type": "string",
+                            "method": "generate",
+                            "description": "A unique chapter index."
+                        },
+                        "ChapterText": {
+                            "type": "string",
+                            "method": "generate",
+                            "description": "The text of the story that is in this chapter. Do not alter the original text."
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

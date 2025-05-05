@@ -1,0 +1,33 @@
+{
+  "scenario": "text",
+  "config": {
+    "returnDetails": true
+  },
+  "tags": {
+      "projectId": "16f1d030-0fac-4ce0-a92c-88bcd6eee3d8",
+      "templateId": "text-2024-12-01"
+  },
+  "fieldSchema": {
+		"fields": {
+			"Summary": {
+				"type": "string",
+				"method": "generate",
+				"description": "A summary of the log"
+			},
+      "People": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "method": "generate"
+        },
+        "method": "generate",
+        "description": "A list of people involved in the conversation"
+      },
+      "Total": {
+        "type": "string",
+        "method": "generate",
+        "description": "How many people were involved in the conversation?"
+      }
+		}
+	}
+}

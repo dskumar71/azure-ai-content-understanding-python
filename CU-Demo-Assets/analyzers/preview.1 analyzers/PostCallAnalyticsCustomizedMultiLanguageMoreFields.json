@@ -1,20 +1,33 @@
 {
-    "description": "Customized Post Call Analytics Analyzer incl. Issue- and Resolution Summaries and extended sentiment descriptions",
-	"baseAnalyzerId": "prebuilt-callCenter",
+    "description": "Multilanguage Post Call Analytics Analyzer with increased field limit.",
+    "scenario": "callCenter",
     "config": {
         "locales": ["en-US", "de-DE", "pt-BR"],
-        "returnDetails": true
+        "returnDetails": true,
+        "_experimental": {
+            "_enableExtraFields": "true"
+        }
     },
     "tags": {
         "projectId": "",
         "templateId": "postCallAnalytics-2024-12-01"
-      },
+    },
     "fieldSchema": {
         "fields": {
             "Summary": {
                 "type": "string",
                 "method": "generate",
                 "description": "A one-paragraph summary"
+            },
+            "IssueSummary": {
+                "type": "string",
+                "method": "generate",
+                "description": "A short list of the caller\"s issue(s)"
+            },
+            "ResolutionSummary": {
+                "type": "string",
+                "method": "generate",
+                "description": "A short list of actions how the issue was resolved"
             },
             "Topics": {
                 "type": "array",
@@ -76,15 +89,43 @@
                     "enum": ["Agriculture", "Business", "Finance", "Health", "Insurance", "Mining", "Pharmaceutical", "Retail", "Technology", "Transportation"]
                 }
             },
-            "IssueSummary": {
+            "SummaryInputLanguage": {
                 "type": "string",
                 "method": "generate",
-                "description": "A short list of the caller\"s issue(s)"
+                "description": "A one-paragraph summary. Create in the language of the conversation."
             },
-            "ResolutionSummary": {
+            "TopicsInputLanguage": {
+                "type": "array",
+                "method": "generate",
+                "description": "Top 5 topics mentioned. Create in the language of the conversation.",
+                "items": {
+                    "type": "string",
+                    "method": "generate"
+                }
+            },
+            "Zusammenfassung": {
                 "type": "string",
                 "method": "generate",
-                "description": "A short list of actions how the issue was resolved"
+                "description": "Eine Zusammenfassung des Gespr\u00e4chs"
+            },
+            "Themen": {
+                "type": "array",
+                "method": "generate",
+                "description": "Top 5 erw\u00e4hnte Gespr\u00e4chsthemen",
+                "items": {
+                    "type": "string",
+                    "method": "generate"
+                }
+            },
+			"Kategorien": {
+                "type": "array",
+                "method": "generate",
+                "description": "Liste der relevanten Kategorien",
+                "items": {
+                    "type": "string",
+                    "method": "classify",
+                    "enum": ["Agrar", "Gesch\u00e4ftlich", "Finanzen", "Gesundheit", "Versicherung", "Mienen", "Pharmacie", "Handel", "Technologie", "Transportwesen"]
+                }
             }
         }
     }

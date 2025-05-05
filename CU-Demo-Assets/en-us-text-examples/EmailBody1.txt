@@ -1,0 +1,104 @@
+Hi Josh,
+
+ 
+
+Thanks for the background.
+
+The `speechStartDetected` event should come first, but usually only by a few ms if not at the same time with the first hypothesis (onRecognizing event).
+
+You’ll also get one for each turn, or reconnection.
+
+ 
+
+Hope that helps,
+
+              Heiko
+
+ 
+
+From: Josh Schraivogel <Josh.Schraivogel@genesys.com> 
+Sent: Friday, April 11, 2025 10:48 AM
+To: Heiko Rahmel <Heiko.Rahmel@microsoft.com>
+Subject: [EXTERNAL] Re: Microsoft ASR event speechStartDetected
+
+ 
+
+Thank you so much Heiko!
+
+ 
+
+After some of the performance hiccups we have been having with STT Engine Providers, I am adding some metrics around first response from the engines, and I was playing around with this new event. It seems like in my testing we would get the speechStartDetected event 100-200 Ms before the onRecognizing event with a transcript (even if it’s an empty transcript). So, in determining where the first response metrics should be taken it made me curious if both events will always be sent and in the same order (speech started, then on recognizing) or not.
+
+ 
+
+–
+
+Josh Schraivogel
+
+ 
+
+From: Heiko Rahmel <Heiko.Rahmel@microsoft.com <mailto:Heiko.Rahmel@microsoft.com> >
+Date: Friday, April 11, 2025 at 1:40 PM
+To: Josh Schraivogel <Josh.Schraivogel@genesys.com <mailto:Josh.Schraivogel@genesys.com> >
+Subject: RE: Microsoft ASR event speechStartDetected
+
+ EXTERNAL EMAIL - Please use caution with links and attachments 
+
+ 
+
+________________________________
+
+Hi Josh,
+
+ 
+
+I am checking with our team. Will get back to you shortly. Out of curiosity, what is prompting your question?
+
+ 
+
+Thanks,
+
+              Heiko
+
+ 
+
+From: Josh Schraivogel <Josh.Schraivogel@genesys.com <mailto:Josh.Schraivogel@genesys.com> > 
+Sent: Friday, April 11, 2025 6:44 AM
+To: Heiko Rahmel <Heiko.Rahmel@microsoft.com <mailto:Heiko.Rahmel@microsoft.com> >
+Subject: [EXTERNAL] Microsoft ASR event speechStartDetected
+
+ 
+
+Hi Heiko,
+
+ 
+
+Had a quick question about the Microsoft ASR SDK. I got your email from previous thread with Brad and Rahul. When it comes to the Speech Recognizer and the events it can send, is the `speechStartDetected` event guaranteed to come before the `onRecognizing` events? I could find very little about the `speechStartDetected` event in Microsoft’s docs: 
+
+ 
+
+Not mentioned here: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-recognize-speech?pivots=programming-language-csharp <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fai-services%2Fspeech-service%2Fhow-to-recognize-speech%3Fpivots%3Dprogramming-language-csharp&data=05%7C02%7Cheiko.rahmel%40microsoft.com%7Cd334dcbbf0224423a88508dd7921112a%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638799905134341400%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=kk4ww84Y2nVcKhzbD6kyqAoXUeWSniH9jhJvpARVxh8%3D&reserved=0> 
+
+Mentioned here but without details: https://learn.microsoft.com/en-us/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fjavascript%2Fapi%2Fmicrosoft-cognitiveservices-speech-sdk%2Fspeechrecognizer%3Fview%3Dazure-node-latest&data=05%7C02%7Cheiko.rahmel%40microsoft.com%7Cd334dcbbf0224423a88508dd7921112a%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638799905134362298%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=HHL5fM4slynV5F9g7tGs1wS24iHahqvgVfGqRKVHpoM%3D&reserved=0> 
+
+ 
+
+ 
+
+Thanks in advance for your time, and I appreciate your help
+
+–
+
+Josh Schraivogel
+
+Software Engineer
+
+josh.schraivogel@genesys.com <mailto:josh.schraivogel@genesys.com>  | genesys.com <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.genesys.com%2F&data=05%7C02%7Cheiko.rahmel%40microsoft.com%7Cd334dcbbf0224423a88508dd7921112a%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638799905134371801%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=um8BDr%2BPj%2BJLjKhcNQA4bDJsyPlnB1ApM9U3Mt6G%2FMg%3D&reserved=0>  
+
+ 
+
+ <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.genesys.com%2F%3Futm_source%3Doutlook%26utm_medium%3Demail%26utm_campaign%3Demailsignaturebanner_ft-hs&data=05%7C02%7Cheiko.rahmel%40microsoft.com%7Cd334dcbbf0224423a88508dd7921112a%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638799905134380412%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3GbQ6f1ex8tL%2FmEkBWpbpzyHuao6kQece6%2FMLSpQS%2Fg%3D&reserved=0> 
+
+ <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fgenesys%2Fmycompany&data=05%7C02%7Cheiko.rahmel%40microsoft.com%7Cd334dcbbf0224423a88508dd7921112a%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638799905134389090%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=8YG5BsDbk07Wdx6VKplOXAc1DYvzxCAASZHDZsi2NUQ%3D&reserved=0>     <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.instagram.com%2Fgenesyscx&data=05%7C02%7Cheiko.rahmel%40microsoft.com%7Cd334dcbbf0224423a88508dd7921112a%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638799905134397697%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=%2B9eCvUkGAkMQO7XpqCPRlomE%2BfnmCtOdXdCLe%2F%2B%2FP5E%3D&reserved=0>     <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fx.com%2Fgenesys&data=05%7C02%7Cheiko.rahmel%40microsoft.com%7Cd334dcbbf0224423a88508dd7921112a%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638799905134406088%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=83MevE1EEbYBW9I0bwh2w8rw4TDDD8k2HsSYy877KLI%3D&reserved=0>     <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.youtube.com%2Fgenesys&data=05%7C02%7Cheiko.rahmel%40microsoft.com%7Cd334dcbbf0224423a88508dd7921112a%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638799905134414418%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=J6SoeR%2B5lCrQnjWBTZbqjicQDMsFs1a6x2tctLBEWyw%3D&reserved=0>     <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.facebook.com%2FGenesys&data=05%7C02%7Cheiko.rahmel%40microsoft.com%7Cd334dcbbf0224423a88508dd7921112a%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638799905134422717%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=Srmd%2BCRC99ye8XqxkY0%2BtxGGFYrYLnfX4VowycRl5UM%3D&reserved=0>     <https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.genesys.com%2Fblog&data=05%7C02%7Cheiko.rahmel%40microsoft.com%7Cd334dcbbf0224423a88508dd7921112a%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638799905134431283%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=Fx2cgD8cqmRvURR%2B2I3nqbagNSYONwM%2Bz12qX1oukTw%3D&reserved=0> 
+
+ 

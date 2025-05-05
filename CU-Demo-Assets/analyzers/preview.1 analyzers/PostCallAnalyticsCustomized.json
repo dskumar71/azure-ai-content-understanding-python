@@ -1,6 +1,6 @@
 {
     "description": "Customized Post Call Analytics Analyzer incl. Issue- and Resolution Summaries and extended sentiment descriptions",
-	"baseAnalyzerId": "prebuilt-callCenter",
+	"scenario": "callCenter",
     "config": {
         "locales": ["en-US", "de-DE", "pt-BR"],
         "returnDetails": true

@@ -1,0 +1,33 @@
+{
+    "scenario": "text",
+    "description": "Extraction of questions and answers from emails.",
+    "config": {
+        "returnDetails": true
+    },
+    "tags": {
+        "projectId": "16f1d030-0fac-4ce0-a92c-88bcd6eee3d8",
+        "templateId": "text-2024-12-01"
+    },
+    "fieldSchema": {
+        "fields": {
+            "QnAPair": {
+                "type": "array",
+                "method": "generate",
+                "description": "A list of questions and anwers asked in the email.",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "Question": {
+                            "type": "string",
+                            "description": "Question asked in the email."
+                        },
+                        "Answer": {
+                            "type": "string",
+                            "description": "Respective answer related to the question that was provided in the email. Output 'None' if no answer was provided."
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
