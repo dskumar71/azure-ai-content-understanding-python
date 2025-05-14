@@ -58,5 +58,6 @@ After this command finishes running, you should be able to
 - see the results of the Analyze call in where you specified ANALYZE_RESULT_OUTPUT_JSON to be
 
 ## Things of Note
+- You will need to be using a version of Python above 3.9
 - Signatures are not supported in CU Preview.2 and thus, will be skipped when migrating the analyzer.json
 - We will only be providing data conversion to CU Preview.2
