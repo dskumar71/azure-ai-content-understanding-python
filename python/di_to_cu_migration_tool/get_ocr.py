@@ -99,7 +99,7 @@ def build_analyzer(credential, current_token, host, api_version, subscriptionKey
             time.sleep(0.5)
     return analyzer_id
 
-def run_cu_layout_ocr(inputFiles: list, output_dir: str, subscriptionKey: str) -> None:
+def run_cu_layout_ocr(input_files: list, output_dir_string: str, subscription_key: str) -> None:
     """
     Function to run the CU Layout OCR on the list of pdf files and write to the given output directory
     """
@@ -115,14 +115,14 @@ def run_cu_layout_ocr(inputFiles: list, output_dir: str, subscriptionKey: str) -
     credential = DefaultAzureCredential()
     current_token = None
 
-    outputDir = Path(output_dir)
-    outputDir.mkdir(parents=True, exist_ok=True)
+    output_dir = Path(output_dir_string)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     # Need to create analyzer with empty schema
-    analyzer_id = build_analyzer(credential, current_token, host, api_version, subscriptionKey)
+    analyzer_id = build_analyzer(credential, current_token, host, api_version, subscription_key)
     url = f"{host}/analyzers/{analyzer_id}:analyze?api-version={api_version}"
 
-    for file in inputFiles:
+    for file in input_files:
         try:
             file = Path(file)
             print(f"\nProcessing file: {file.name}")
@@ -130,7 +130,7 @@ def run_cu_layout_ocr(inputFiles: list, output_dir: str, subscriptionKey: str) -
             current_token = get_token(credential, current_token)
             headers = {
                 "Authorization": f"Bearer {current_token.token}",
-                "Apim-Subscription-id": f"{subscriptionKey}",
+                "Apim-Subscription-id": f"{subscription_key}",
                 "Content-Type": "application/pdf",
             }
 
@@ -154,7 +154,7 @@ def run_cu_layout_ocr(inputFiles: list, output_dir: str, subscriptionKey: str) -
                 status = result.get("status", "").lower()
 
                 if status == "succeeded":
-                    outputFile = outputDir / (file.name + ".result.json")
+                    outputFile = output_dir / (file.name + ".result.json")
                     with open(outputFile, "w") as out_f:
                         json.dump(result, out_f, indent=4)
                     print(f"[green]Success: Results saved to {outputFile}[/green]")
