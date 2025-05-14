@@ -25,54 +25,54 @@ from get_ocr import run_cu_layout_ocr
 
 app = typer.Typer()
 
-def validate_field_count(DI_version, byteFields) -> Tuple[int, str]:
+def validate_field_count(DI_version, byte_fields) -> Tuple[int, str]:
     """
     Function to check if the fields.json is valid
     Checking to see if the number of fields is less than or equal to 100
     """
-    stringFields = byteFields.decode("utf-8")
-    fields = json.loads(stringFields)
+    string_fields = byte_fields.decode("utf-8")
+    fields = json.loads(string_fields)
 
-    fieldCount = 0
+    field_count = 0
     if DI_version == "CustomGen":
-        fieldSchema = fields["fieldSchema"]
-        if len(fieldSchema) > MAX_FIELD_COUNT:
-            return len(fieldSchema), False
-        for _, field in fieldSchema.items(): # need to account for tables
+        field_schema = fields["fieldSchema"]
+        if len(field_schema) > MAX_FIELD_COUNT:
+            return len(field_schema), False
+        for _, field in field_schema.items(): # need to account for tables
             if field["type"] == "array":
-                fieldCount += (len(field["items"]["properties"]) + 1)
+                field_count += (len(field["items"]["properties"]) + 1)
             elif field["type"] == "object":
                 number_of_rows = len(field["properties"])
-                _, firstRowValue = next(iter(field["properties"].items()))
-                number_of_columns = len(firstRowValue["properties"])
-                fieldCount += (number_of_rows + number_of_columns + 2)
+                _, first_row_value = next(iter(field["properties"].items()))
+                number_of_columns = len(first_row_value["properties"])
+                field_count += (number_of_rows + number_of_columns + 2)
             else:
-                fieldCount += 1 # need to account for other primitive fields
-        if fieldCount > MAX_FIELD_COUNT:
-            return fieldCount, False
+                field_count += 1 # need to account for other primitive fields
+        if field_count > MAX_FIELD_COUNT:
+            return field_count, False
     else: # DI 3.1/4.0 GA Custom Neural
-        fieldSchema = fields["fields"]
+        field_schema = fields["fields"]
         definitions = fields["definitions"]
         if len(fields) > MAX_FIELD_COUNT:
             return len(fields), False
-        for field in fieldSchema:
+        for field in field_schema:
             if field["fieldType"] == "array":
                 definition = definitions[field["itemType"]]
-                fieldCount += (len(definition["fields"]) + 1)
+                field_count += (len(definition["fields"]) + 1)
             elif field["fieldType"] == "object":
                 number_of_rows = len(field["fields"])
-                rowDefinition = field["fields"][0]["fieldType"]
-                definition = definitions[rowDefinition]
+                row_definition = field["fields"][0]["fieldType"]
+                definition = definitions[row_definition]
                 number_of_columns = len(definition["fields"])
-                fieldCount += (number_of_rows + number_of_columns + 2)
+                field_count += (number_of_rows + number_of_columns + 2)
             elif field["fieldType"] == "signature":
                 continue # will be skipping over signature fields anyways, shouldn't add to field count
             else:
-                fieldCount += 1 # need to account for other primitive fields
-        if fieldCount > MAX_FIELD_COUNT:
-            return fieldCount, False
-    print(f"[green]Successfully validated fields.json. Number of fields: {fieldCount}[/green]")
-    return fieldCount, True
+                field_count += 1 # need to account for other primitive fields
+        if field_count > MAX_FIELD_COUNT:
+            return field_count, False
+    print(f"[green]Successfully validated fields.json. Number of fields: {field_count}[/green]")
+    return field_count, True
 
 @app.command()
 def main(

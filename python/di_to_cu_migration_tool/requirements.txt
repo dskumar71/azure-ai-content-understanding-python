@@ -1,5 +1,5 @@
 # Dependencies for the DI to CU Migration OSS Tool
-azure-identity==1.16.0
+azure-identity==1.20.0
 dotenv==0.9.9
 pytest==8.3.5
 python-dateutil==2.9.0post0
