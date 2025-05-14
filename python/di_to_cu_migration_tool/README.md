@@ -1,8 +1,9 @@
 # Document Intelligence to Content Understanding Migration Tool (Python)
 
-Welcome! We've created this tool to help convert your Document Intelligence (DI) datasets to Content Understanding (CU) format. The following DI versions are supported:
+Welcome! We've created this tool to help convert your Document Intelligence (DI) datasets to Content Understanding (CU) **Preview.2** format. The following DI versions are supported:
 - DI 3.1/4.0 GA CustomNeural
 - DI 4.0 Preview CustomGen
+To help you identify which version of Document Intelligence your dataset is in, please consult the sample documents provided under this folder to determine which format matches that of yours. 
 
 Additionally, this will automatically create a CU Analyzer using your provided AI Service endpoint and provide the option to run Analyze on a given file. 
 
@@ -57,3 +58,5 @@ After this command finishes running, you should be able to
 - see the results of the Analyze call in where you specified ANALYZE_RESULT_OUTPUT_JSON to be
 
 ## Things of Note
+- Signatures are not supported in CU Preview.2 and thus, will be skipped when migrating the analyzer.json
+- We will only be providing data conversion to CU Preview.2
