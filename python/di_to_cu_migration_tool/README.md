@@ -14,7 +14,7 @@ To setup this tool, you will need to do the following steps:
 3. Replace the following values in your **.env** file as such:
    - **HOST:** Replace this with your Azure AI Service's Content Understanding endpoint
        - Ex: "https://aainatest422.services.ai.azure.com"
-   - **SUBSCRIPTION_ID:** Replace this with your name or alias, is used to identify who called the API request
+   - **SUBSCRIPTION_KEY:** Replace this with your name or alias, is used to identify who called the API request
        - Ex: "vannanaaina"
    - **SOURCE_BLOB_ACCOUNT_URL:** Replace this with the URL to your blob storage account that contains your DI dataset
        - Ex: "https://srcStorageAccountName.blob.core.windows.net"
@@ -33,7 +33,7 @@ To setup this tool, you will need to do the following steps:
        - Ex: "dest/path/to/folder"
    - **TARGET_BLOB_STORAGE_SAS_TOKEN:** Replace this with the SAS Token to authenticate into your target blob storage. This is REQUIRED, you CANNOT use Azure AAD to authenticate.
      A SAS Token is needed for creating an Analyzer.
-   - **ANALYZE_PDF_URL:** Replace this with the SAS URL to a file you wish to analyze (i.e. pdf, jpg, jpeg, etc.). 
+   - **ANALYZE_PDF_URL:** Replace this with the SAS URL to a file you wish to analyze (i.e. pdf, jpg, jpeg, etc.). If you wish to not run Analyze, you can leave this as empty (i.e. "") 
        - Ex: "https://srcStorageAccountName.blob.core.windows.net/srcContainerName/src/path/to/folder/test.pdf?SASToken"
    - **ANALYZE_RESULT_OUTPUT_JSON:** Replace this with where you wish to store the analyze results. The default is "./analyze_result.json"
 

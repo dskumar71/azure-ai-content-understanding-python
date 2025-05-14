@@ -93,7 +93,7 @@ def main(
 
     # Getting the environmental variables
     load_dotenv()
-    subscription_id = os.getenv("SUBSCRIPTION_ID")
+    subscription_key = os.getenv("SUBSCRIPTION_KEY")
     # for source
     source_account_url = os.getenv("SOURCE_BLOB_ACCOUNT_URL")
     source_blob_storage_sasToken = os.getenv("SOURCE_BLOB_STORAGE_SAS_TOKEN")
@@ -169,7 +169,7 @@ def main(
     analyzer_data, ocr_files = running_cu_conversion(temp_dir, temp_target_dir, DI_version, analyzer_prefix, removed_signatures)
 
     # Run OCR on the pdf files
-    run_cu_layout_ocr(ocr_files, temp_target_dir, subscription_id)
+    run_cu_layout_ocr(ocr_files, temp_target_dir, subscription_key)
     print(f"[green]Successfully finished running CU Layout on all PDF files[/green]\n")
 
     # After processing files in temp_target_dir
@@ -192,14 +192,14 @@ def main(
     print("[green]Successfully uploaded all files to target blob storage.[/green]")
 
     print("Creating analyzer...")
-    analyzer_id = submit_build_analyzer_put_request(analyzer_data, target_account_url, target_container_name, target_blob_name, target_blob_storage_sasToken, subscription_id)
+    analyzer_id = submit_build_analyzer_put_request(analyzer_data, target_account_url, target_container_name, target_blob_name, target_blob_storage_sasToken, subscription_key)
 
     url = os.getenv("ANALYZE_PDF_URL")
     if url == "":
         print("Skipping analyze PDF step, because no URL was provided.")
     else:
         print("Callling Analyze on given PDF file...")
-        submit_post_analyzer_request(url, analyzer_id, subscription_id)
+        submit_post_analyzer_request(url, analyzer_id, subscription_key)
 
 def running_field_type_conversion(temp_source_dir: Path, temp_dir: Path, DI_version: str) -> list:
     """
@@ -277,7 +277,7 @@ def running_cu_conversion(temp_dir: Path, temp_target_dir: Path, DI_version: str
                 ocr_files.append(file_path) # Adding to list of files to run OCR on
     return analyzer_data, ocr_files
 
-def submit_build_analyzer_put_request(analyzerData: dict, targetAccountUrl: str, targetContainerName: str, targetBlobName: str, targetBlobStorageSasToken: str, subscription_id: str) -> str:
+def submit_build_analyzer_put_request(analyzerData: dict, targetAccountUrl: str, targetContainerName: str, targetBlobName: str, targetBlobStorageSasToken: str, subscription_key: str) -> str:
     """
     Initiates the creation of an analyzer with the given fieldSchema and training data.
     """
@@ -296,7 +296,7 @@ def submit_build_analyzer_put_request(analyzerData: dict, targetAccountUrl: str,
     access_token = token.token
     headers = {
         "Authorization": f"Bearer {access_token}",
-        "Ocp-Apim-Subscription-Key": f"{subscription_id}",
+        "Ocp-Apim-Subscription-Key": f"{subscription_key}",
         "Content-Type": "application/json"
     }
 
@@ -343,7 +343,7 @@ def submit_build_analyzer_put_request(analyzerData: dict, targetAccountUrl: str,
 
     return analyzer_id
 
-def submit_post_analyzer_request(pdfURL: str, analyzerId: str , subscription_id: str) -> None:
+def submit_post_analyzer_request(pdfURL: str, analyzerId: str , subscription_key: str) -> None:
     """
     Call the Analyze API on the given PDF File
     """
@@ -356,7 +356,7 @@ def submit_post_analyzer_request(pdfURL: str, analyzerId: str , subscription_id:
     access_token = token.token
     headers = {
         "Authorization": f"Bearer {access_token}",
-        "Apim-Subscription-id": f"{subscription_id}",
+        "Ocp-Apim-Subscription-Key": f"{subscription_key}",
         "Content-Type": "application/pdf"
     }
 
