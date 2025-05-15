@@ -7,18 +7,42 @@ from pathlib import Path
 
 
 class AzureContentUnderstandingClient:
+    # def __init__(
+    #     self,
+    #     endpoint: str,
+    #     api_version: str,
+    #     subscription_key: str = None,
+    #     token_provider: callable = None,
+    #     x_ms_useragent: str = "cu-sample-code",
+    # ):
+    #     if not subscription_key and not token_provider:
+    #         raise ValueError(
+    #             "Either subscription key or token provider must be provided."
+    #         )
+    #     if not api_version:
+    #         raise ValueError("API version must be provided.")
+    #     if not endpoint:
+    #         raise ValueError("Endpoint must be provided.")
+
+    #     self._endpoint = endpoint.rstrip("/")
+    #     self._api_version = api_version
+    #     self._logger = logging.getLogger(__name__)
+    #     self._headers = self._get_headers(
+    #         subscription_key, token_provider(), x_ms_useragent
+    #     )
+    
     def __init__(
         self,
         endpoint: str,
         api_version: str,
         subscription_key: str = None,
-        token_provider: callable = None,
+        token_provider: callable = None,            # still optional, but unused if you supply a key
         x_ms_useragent: str = "cu-sample-code",
     ):
-        if not subscription_key and not token_provider:
-            raise ValueError(
-                "Either subscription key or token provider must be provided."
-            )
+        # You must provide at least a subscription key
+        if not subscription_key:
+            raise ValueError("A subscription key must be provided.")
+
         if not api_version:
             raise ValueError("API version must be provided.")
         if not endpoint:
@@ -27,8 +51,15 @@ class AzureContentUnderstandingClient:
         self._endpoint = endpoint.rstrip("/")
         self._api_version = api_version
         self._logger = logging.getLogger(__name__)
+
+        # **Only** call token_provider if you really passed one in
+        token = token_provider() if callable(token_provider) else None
+
+        # Build headers with your key + (optional) token
         self._headers = self._get_headers(
-            subscription_key, token_provider(), x_ms_useragent
+            subscription_key,
+            token,
+            x_ms_useragent
         )
 
     def _get_analyzer_url(self, endpoint, api_version, analyzer_id):
